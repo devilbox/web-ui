@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Container, Typography } from '@material-ui/core';
 
 export function HomePage() {
   return (
@@ -8,7 +9,15 @@ export function HomePage() {
         <title>Home</title>
         <meta name="description" content="Devilbox homepage" />
       </Helmet>
-      <span>HomePage container</span>
+      <Container>
+        <Typography variant="h1" component="h2" gutterBottom>
+          Home
+        </Typography>
+
+        <Typography variant="body1" gutterBottom>
+          Content
+        </Typography>
+      </Container>
     </>
   );
 }
