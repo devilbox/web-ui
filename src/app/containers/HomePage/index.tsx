@@ -5,7 +5,7 @@ export function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Home Page</title>
+        <title>Home</title>
         <meta name="description" content="Devilbox homepage" />
       </Helmet>
       <span>HomePage container</span>
