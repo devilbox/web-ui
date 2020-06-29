@@ -200,6 +200,10 @@ export function App() {
             </Typography>
 
             <Button>
+              <span>Home</span>
+            </Button>
+
+            <Button>
               <span>Virtual Hosts</span>
             </Button>
 
