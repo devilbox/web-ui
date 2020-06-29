@@ -6,7 +6,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import { GlobalStyle } from 'styles/global-styles';
 
-import { HomePage } from './containers/HomePage/Loadable';
+import { HomePage } from './pages/Home/Loadable';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import Header from './components/Header';
 
