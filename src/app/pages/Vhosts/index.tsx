@@ -2,15 +2,15 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Container, Typography } from '@material-ui/core';
 
-const Home = () => (
+const Vhosts = () => (
   <>
     <Helmet>
-      <title>Home</title>
+      <title>Vhosts</title>
       <meta name="description" content="Devilbox Web-UI" />
     </Helmet>
     <Container>
       <Typography variant="h1" component="h2" gutterBottom>
-        Home
+        Virtual hosts
       </Typography>
 
       <Typography variant="body1" gutterBottom>
@@ -20,4 +20,4 @@ const Home = () => (
   </>
 );
 
-export default Home;
+export default Vhosts;

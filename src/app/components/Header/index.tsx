@@ -2,7 +2,6 @@ import React, { useState, MouseEvent } from 'react';
 import {
   AppBar,
   Toolbar,
-  Link,
   Typography,
   IconButton,
   Button,
@@ -12,6 +11,7 @@ import {
   GitHub as GithubIcon,
   ExpandMore as ExpandMoreIcon,
 } from '@material-ui/icons';
+import { NavLink } from 'react-router-dom';
 
 import Menu from '../Menu';
 
@@ -129,6 +129,8 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
     },
     linkItem: {
+      color: theme.palette.primary.contrastText,
+      textDecoration: 'none',
       margin: theme.spacing(0, 1, 0),
     },
     grow: {
@@ -169,13 +171,19 @@ const Header = () => {
 
   const renderMenuItems = () => [
     <Button key="home">
-      <span>Home</span>
+      <NavLink to="/" className={classes.linkItem}>
+        Home
+      </NavLink>
     </Button>,
     <Button key="vhosts">
-      <span>Virtual Hosts</span>
+      <NavLink to="/vhosts" className={classes.linkItem}>
+        Virtual Hosts
+      </NavLink>
     </Button>,
     <Button key="emails">
-      <span>E-Mails</span>
+      <NavLink to="/mails" className={classes.linkItem}>
+        E-Mails
+      </NavLink>
     </Button>,
     <Button
       key="databases"
@@ -222,7 +230,9 @@ const Header = () => {
         />
 
         <Typography variant="h6" color="primary" className={classes.title}>
-          <Link href="/">devilbox</Link>
+          <NavLink to="/" className={classes.linkItem}>
+            devilbox
+          </NavLink>
         </Typography>
 
         {renderMenuItems()}

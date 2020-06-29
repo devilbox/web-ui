@@ -4,7 +4,9 @@
 
 import { lazyLoad } from 'utils/loadable';
 
-export const NotFoundPage = lazyLoad(
+const Page = lazyLoad(
   () => import('./index'),
-  module => module.NotFoundPage,
+  module => module.default,
 );
+
+export default Page;

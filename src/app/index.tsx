@@ -6,8 +6,10 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import { GlobalStyle } from 'styles/global-styles';
 
-import { HomePage } from './pages/Home/Loadable';
-import { NotFoundPage } from './components/NotFoundPage/Loadable';
+import HomePage from './pages/Home/Loadable';
+import MailsPage from './pages/Mails/Loadable';
+import VhostsPage from './pages/Vhosts/Loadable';
+import NotFoundPage from './pages/NotFound/Loadable';
 import Header from './components/Header';
 
 const darkTheme = createMuiTheme({
@@ -30,6 +32,8 @@ const App = () => (
       <Container>
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/mails" component={MailsPage} />
+          <Route exact path="/vhosts" component={VhostsPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Container>
