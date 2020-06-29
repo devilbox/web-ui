@@ -38,6 +38,10 @@ const darkTheme = createMuiTheme({
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    logo: {
+      maxWidth: 32,
+      marginRight: theme.spacing(1),
+    },
     title: {
       marginRight: theme.spacing(2),
     },
@@ -195,6 +199,12 @@ export function App() {
 
         <AppBar position="static" color="default">
           <Toolbar>
+            <img
+              src={`${process.env.PUBLIC_URL}/logo/round/logo_64_trans.png`}
+              alt="logo"
+              className={classes.logo}
+            />
+
             <Typography variant="h6" color="primary" className={classes.title}>
               <Link href="/">devilbox</Link>
             </Typography>
