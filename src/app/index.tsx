@@ -20,8 +20,8 @@ const darkTheme = createMuiTheme({
 
 const App = () => (
   <BrowserRouter>
-    <Helmet titleTemplate="%s &ndash; Devilbox" defaultTitle="Devilbox">
-      <meta name="description" content="The web UI for Devilbox" />
+    <Helmet titleTemplate="%s &ndash; devilbox" defaultTitle="devilbox">
+      <meta name="description" content="The web UI for devilbox" />
     </Helmet>
 
     <ThemeProvider theme={darkTheme}>
