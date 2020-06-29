@@ -28,7 +28,7 @@ const Footer = () => {
     <BottomNavigation showLabels className={classes.stickToBottom}>
       <div className={classes.customBottomNavigationAction}>
         {window && (window as any).pageLoadStart
-          ? `${new Intl.NumberFormat('en-US', {
+          ? `Render time: ${new Intl.NumberFormat('en-US', {
               style: 'decimal',
               maximumFractionDigits: 2,
             }).format(
