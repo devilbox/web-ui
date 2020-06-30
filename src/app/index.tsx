@@ -10,7 +10,8 @@ import HomePage from './pages/Home/Loadable';
 import MailsPage from './pages/Mails/Loadable';
 import VhostsPage from './pages/Vhosts/Loadable';
 import NotFoundPage from './pages/NotFound/Loadable';
-import Header from './components/Header';
+import Content from './containers/App';
+import Header from './containers/Header';
 import Footer from './components/Footer';
 
 const darkTheme = createMuiTheme({
@@ -30,14 +31,16 @@ const App = () => (
 
       <Header />
 
-      <Container>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/mails" component={MailsPage} />
-          <Route exact path="/vhosts" component={VhostsPage} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </Container>
+      <Content>
+        <Container>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/mails" component={MailsPage} />
+            <Route exact path="/vhosts" component={VhostsPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Container>
+      </Content>
 
       <Footer />
     </ThemeProvider>

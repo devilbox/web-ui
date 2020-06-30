@@ -13,6 +13,7 @@ export function configureAppStore() {
 
   const enhancers = [
     createInjectorsEnhancer({
+      // @ts-ignore
       createReducer,
       runSaga,
     }),

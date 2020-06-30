@@ -12,112 +12,9 @@ import {
   ExpandMore as ExpandMoreIcon,
 } from '@material-ui/icons';
 import { NavLink } from 'react-router-dom';
+import { SettingsItem } from '../../App/types';
 
-import Menu from '../Menu';
-
-const DATABASES = [
-  {
-    id: 'mysql',
-    url: 'http://localhost/db_mysql.php',
-    text: 'MySQL',
-  },
-  {
-    id: 'pgsql',
-    url: 'http://localhost/db_pgsql.php',
-    text: 'PgSQL',
-  },
-  {
-    id: 'mongodb',
-    url: 'http://localhost/db_mongo.php',
-    text: 'MongoDB',
-  },
-  {
-    id: 'redis',
-    url: 'http://localhost/db_redis.php',
-    text: 'Redis',
-  },
-  {
-    id: 'memcached',
-    url: 'http://localhost/db_memcd.php',
-    text: 'Memcached',
-  },
-];
-
-const INFOS = [
-  {
-    id: 'httpd',
-    url: 'http://localhost/info_httpd.php',
-    text: 'Httpd',
-  },
-  {
-    id: 'php',
-    url: 'http://localhost/info_php.php',
-    text: 'PHP',
-  },
-  {
-    id: 'mysql',
-    url: 'http://localhost/info_mysql.php',
-    text: 'MySQL',
-  },
-  {
-    id: 'pgsql',
-    url: 'http://localhost/info_pgsql.php',
-    text: 'PgSQL',
-  },
-  {
-    id: 'mongodb',
-    url: 'http://localhost/info_mongo.php',
-    text: 'MongoDB',
-  },
-  {
-    id: 'redis',
-    url: 'http://localhost/info_redis.php',
-    text: 'Redis',
-  },
-  {
-    id: 'memchached',
-    url: 'http://localhost/info_memcd.php',
-    text: 'Memcached',
-  },
-];
-
-const TOOLS = [
-  {
-    id: 'adminer',
-    url: 'http://localhost/vendor/adminer-4.7.5-en.php',
-    text: 'Adminer',
-  },
-  {
-    id: 'phpmyadmin',
-    url: 'http://localhost/vendor/phpmyadmin-5.0.0/index.php',
-    text: 'phpMyAdmin',
-  },
-  {
-    id: 'phppgadmin',
-    url: 'http://localhost/vendor/phppgadmin-7.12.0/',
-    text: 'phpPgAdmin',
-  },
-  {
-    id: 'phpredmin',
-    url: 'http://localhost/vendor/phpredmin/public/index.php',
-    text: 'PHPRedMin',
-  },
-  {
-    id: 'phpmemcachedadmin',
-    url: 'http://localhost/vendor/phpmemcachedadmin-1.3.0/index.php',
-    text: 'PHPMemcachedAin',
-  },
-  {
-    id: 'opcache_gui',
-    url: 'http://localhost/opcache.php',
-    text: 'Opcache GUI',
-  },
-  {
-    id: 'opcache_control_panel',
-    url: 'http://localhost/vendor/ocp.php',
-    text: 'Opcache Control Panel',
-  },
-];
+import Menu from '../../../components/Menu';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -142,7 +39,13 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const Header = () => {
+interface Props {
+  databases: SettingsItem[];
+  infos: SettingsItem[];
+  tools: SettingsItem[];
+}
+
+const Header = ({ databases, infos, tools }: Props) => {
   const classes = useStyles();
 
   const [databaseMenu, setDatabaseMenu] = useState<null | HTMLElement>(null);
@@ -242,7 +145,7 @@ const Header = () => {
           targetRef={databaseMenu}
           open={!!databaseMenu}
           handleClose={handleDatabaseMenuClose}
-          items={DATABASES}
+          items={databases}
         />
 
         <Menu
@@ -250,7 +153,7 @@ const Header = () => {
           targetRef={infoMenu}
           open={!!infoMenu}
           handleClose={handleInfoMenuClose}
-          items={INFOS}
+          items={infos}
         />
 
         <Menu
@@ -258,7 +161,7 @@ const Header = () => {
           targetRef={toolsMenu}
           open={!!toolsMenu}
           handleClose={handleToolsMenuClose}
-          items={TOOLS}
+          items={tools}
         />
 
         <div className={classes.grow} />

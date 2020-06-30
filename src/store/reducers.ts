@@ -7,7 +7,7 @@ export function createReducer(injectedReducers: InjectedReducersType = {}) {
     return state => state;
   } else {
     return combineReducers({
-      ...injectedReducers,
+      ...(injectedReducers as any),
     });
   }
 }
