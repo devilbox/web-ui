@@ -27,7 +27,56 @@
       "text": "NoSQL Stack"
     }
   ],
-  "networking": {},
+  "networking": [
+    {
+      "id": "php",
+      "docker_name": "php",
+      "hostname": "php",
+      "ip": "127.168.238.10"
+    },
+    {
+      "id": "httpd",
+      "docker_name": "httpd",
+      "hostname": "httpd",
+      "ip": "127.168.238.11"
+    },
+    {
+      "id": "mysql",
+      "docker_name": "mysql",
+      "hostname": "mysql",
+      "ip": "127.168.238.12"
+    },
+    {
+      "id": "pgsql",
+      "docker_name": "pgsql",
+      "hostname": "pgsql",
+      "ip": "127.168.238.13"
+    },
+    {
+      "id": "redis",
+      "docker_name": "redis",
+      "hostname": "redis",
+      "ip": "127.168.238.14"
+    },
+    {
+      "id": "memcached",
+      "docker_name": "memcached",
+      "hostname": "memcached",
+      "ip": "127.168.238.15"
+    },
+    {
+      "id": "mongo",
+      "docker_name": "mongo",
+      "hostname": "mongo",
+      "ip": "127.168.238.16"
+    },
+    {
+      "id": "bind",
+      "docker_name": "bind",
+      "hostname": "bind",
+      "ip": "127.168.238.100"
+    }
+  ],
   "mounts": {
     "data": {},
     "config": {},
