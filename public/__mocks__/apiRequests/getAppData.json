@@ -130,7 +130,56 @@
     ]
   ],
   "mounts": {
-    "data": {},
+    "data": [
+      {
+        "id": "php",
+        "docker_name": "php",
+        "host_path": "./data/www",
+        "docker_path": "/shared/httpd"
+      },
+      {
+        "id": "httpd",
+        "docker_name": "httpd",
+        "host_path": "./data/www",
+        "docker_path": "/shared/httpd"
+      },
+      {
+        "id": "mysql",
+        "docker_name": "mysql",
+        "host_path": "Docker Volume",
+        "docker_path": "/var/lib/mysql"
+      },
+      {
+        "id": "pgsql",
+        "docker_name": "pgsql",
+        "host_path": "Docker Volume",
+        "docker_path": "/var/lib/postgresql/data/pgdata"
+      },
+      {
+        "id": "redis",
+        "docker_name": "redis",
+        "host_path": null,
+        "docker_path": null
+      },
+      {
+        "id": "memcached",
+        "docker_name": "memcached",
+        "host_path": null,
+        "docker_path": null
+      },
+      {
+        "id": "mongo",
+        "docker_name": "mongo",
+        "host_path": "Docker Volume",
+        "docker_path": "/data/db"
+      },
+      {
+        "id": "bind",
+        "docker_name": "bind",
+        "host_path": null,
+        "docker_path": null
+      }
+    ],
     "config": {},
     "log": {}
   },
