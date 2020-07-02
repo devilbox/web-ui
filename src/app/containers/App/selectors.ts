@@ -34,12 +34,12 @@ const makeGetContainerByStackId = (stackId: string) =>
 
 const makeCoreVersionSelector = createSelector(
   app,
-  appState => appState.versions.core,
+  appState => appState.versions.core || 'n.a.',
 );
 
 const makeUIVersionSelector = createSelector(
   app,
-  appState => appState.versions.ui,
+  appState => appState.versions.ui || 'n.a.',
 );
 
 const makeHealthPercentageSelector = createSelector(
@@ -47,7 +47,7 @@ const makeHealthPercentageSelector = createSelector(
   appState =>
     (appState.containers as ContainerItem[]).filter(
       container => container.is_running,
-    ).length / appState.containers.length,
+    ).length / appState.containers.length || 0,
 );
 
 export {
