@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { useInjectReducer } from 'utils/redux-injectors';
 import { Grid } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { Container as TypeContainer } from './types';
 import Panel from '../Panel';
 import Container from './Container';
 import { sliceKey, reducer } from '../../containers/App/slice';
