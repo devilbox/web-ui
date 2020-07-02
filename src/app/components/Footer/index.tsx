@@ -4,14 +4,12 @@ import {
   BugReport as BugReportIcon,
   SupervisedUserCircle as SupervisedUserCircleIcon,
 } from '@material-ui/icons';
-import { createStyles, makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    stickToBottom: {
-      width: '100%',
-      position: 'fixed',
-      bottom: 0,
+    root: {
+      marginTop: theme.spacing(4),
     },
     customBottomNavigationAction: {
       minWidth: 80,
@@ -25,7 +23,7 @@ const Footer = () => {
   const classes = useStyles();
 
   return (
-    <BottomNavigation showLabels className={classes.stickToBottom}>
+    <BottomNavigation showLabels className={classes.root}>
       <div className={classes.customBottomNavigationAction}>
         {window && (window as any).pageLoadStart
           ? `Render time: ${new Intl.NumberFormat('en-US', {
