@@ -77,12 +77,63 @@
       "ip": "127.168.238.100"
     }
   ],
+  "ports": [
+    [
+      {
+        "id": "php",
+        "docker_name": "php",
+        "host_port": null,
+        "docker_port": ["9000"]
+      },
+      {
+        "id": "httpd",
+        "docker_name": "php",
+        "host_port": ["80", "443"],
+        "docker_port": ["80", "443"]
+      },
+      {
+        "id": "mysql",
+        "docker_name": "mysql",
+        "host_port": ["3306"],
+        "docker_port": ["3306"]
+      },
+      {
+        "id": "pqsql",
+        "docker_name": "pqsql",
+        "host_port": ["5432"],
+        "docker_port": ["5432"]
+      },
+      {
+        "id": "redis",
+        "docker_name": "redis",
+        "host_port": ["6379"],
+        "docker_port": ["6379"]
+      },
+      {
+        "id": "memcached",
+        "docker_name": "memcached",
+        "host_port": ["11211"],
+        "docker_port": ["11211"]
+      },
+      {
+        "id": "mongo",
+        "docker_name": "mongo",
+        "host_port": ["27017"],
+        "docker_port": ["27017"]
+      },
+      {
+        "id": "bind",
+        "docker_name": "bind",
+        "host_port": ["1053/tcp", "1053/udp"],
+        "docker_port": ["53/tcp", "54/udp"]
+      }
+    ]
+  ],
   "mounts": {
     "data": {},
     "config": {},
     "log": {}
   },
-  "ports": {},
   "settings": {
     "databases": [
       {
