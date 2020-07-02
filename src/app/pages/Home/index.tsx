@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import Stack from '../../components/Stack';
 import Panel from '../../components/Panel';
+import HealthBar from '../../components/HealthBar';
 import Dictionary from '../../components/Dictionary';
 import saga from '../../containers/App/saga';
 import {
@@ -84,9 +85,7 @@ const Home = () => {
           </Grid>
           <Grid item xs={4}>
             <Panel name="Health">
-              {new Intl.NumberFormat(undefined, { style: 'percent' }).format(
-                healthPercentage,
-              )}
+              <HealthBar percentage={healthPercentage} />
             </Panel>
           </Grid>
           {renderStacks()}
