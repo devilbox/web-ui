@@ -1,13 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { useInjectReducer } from 'utils/redux-injectors';
 import { Grid } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { Container as TypeContainer } from './types';
 import Panel from '../Panel';
 import Container from './Container';
+import { sliceKey, reducer } from '../../containers/App/slice';
+import { makeGetContainerByStackId } from '../../containers/App/selectors';
 
 interface Props {
-  name: string;
-  containers: TypeContainer[];
+  id: string;
+  text: string;
   minAmountContainersPerStack?: number;
 }
 
@@ -27,23 +31,28 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const Stack = ({ name, containers, minAmountContainersPerStack }: Props) => {
+const Stack = ({ id, text, minAmountContainersPerStack }: Props) => {
   const classes = useStyles();
 
+  useInjectReducer({ key: sliceKey, reducer: reducer });
+
+  const makeContainerSelector = makeGetContainerByStackId(id);
+  const containers = useSelector(makeContainerSelector);
+
   return (
-    <Panel name={name}>
+    <Panel name={text}>
       <Grid container spacing={2}>
         {Array.from(
           new Array(Math.max(containers.length, minAmountContainersPerStack!)),
         )
           .map((_, index) =>
-            containers[index] ? (
+            containers![index] ? (
               <Container
                 key={containers[index].id}
                 id={containers[index].id}
                 name={containers[index].name}
                 version={containers[index].version}
-                status={containers[index].status}
+                status={containers[index].is_running ? 'running' : 'error'}
               />
             ) : undefined,
           )
@@ -63,6 +72,7 @@ const Stack = ({ name, containers, minAmountContainersPerStack }: Props) => {
 };
 
 Stack.defaultProps = {
+  containers: [],
   minAmountContainersPerStack: 3,
 };
 

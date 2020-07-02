@@ -1,0 +1,18 @@
+{
+  "id": "postgresql",
+  "default_name": "PostgreSQL",
+  "name": "PostgreSQL",
+  "status": {
+    "available": true,
+    "connection": [
+      {
+        "hostname": "",
+        "success": true,
+        "error": null
+      }
+    ]
+  },
+  "is_running": true,
+  "version": "12.1",
+  "stack": "sql"
+}

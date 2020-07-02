@@ -1,10 +1,14 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
-import { ContainerState, AppStateData } from './types';
+import { ContainerState, AppStateData, ContainerItem } from './types';
 
 export const initialState: ContainerState = {
-  devilbox_version: '',
-  container_ids: [],
+  versions: {
+    core: '',
+    ui: '',
+  },
+  stacks: [],
+  containers: [],
   networking: [],
   mounts: {
     data: [],
@@ -34,6 +38,13 @@ const appSlice = createSlice({
         state[key] = action.payload[key];
       });
       state.loading = false;
+    },
+    setContainerData(state, action: PayloadAction<ContainerItem>) {
+      state.containers[
+        state.containers.findIndex(
+          container => container.id === action.payload.id,
+        )
+      ] = action.payload;
     },
   },
 });

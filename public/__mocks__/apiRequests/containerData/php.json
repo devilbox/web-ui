@@ -1,0 +1,18 @@
+{
+  "id": "php",
+  "default_name": "PHP",
+  "name": "PHP",
+  "status": {
+    "available": true,
+    "connection": [
+      {
+        "hostname": "",
+        "success": true,
+        "error": null
+      }
+    ]
+  },
+  "is_running": true,
+  "version": "7.3.16",
+  "stack": "base"
+}

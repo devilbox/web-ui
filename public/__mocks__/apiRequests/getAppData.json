@@ -1,6 +1,32 @@
 {
-  "devilbox_version": "0.1.2",
-  "container_ids": [1, 2, 3],
+  "versions": {
+    "core": "v1.7.0 (2020-03-24)",
+    "ui": "1.2.3"
+  },
+  "containers": [
+    { "id": "bind" },
+    { "id": "php" },
+    { "id": "apache" },
+    { "id": "mariadb" },
+    { "id": "postgresql" },
+    { "id": "redis" },
+    { "id": "memcached" },
+    { "id": "mongodb" }
+  ],
+  "stacks": [
+    {
+      "id": "base",
+      "text": "Base Stack"
+    },
+    {
+      "id": "sql",
+      "text": "SQL Stack"
+    },
+    {
+      "id": "nosql",
+      "text": "NoSQL Stack"
+    }
+  ],
   "networking": {},
   "mounts": {
     "data": {},

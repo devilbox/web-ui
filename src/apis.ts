@@ -5,4 +5,9 @@ const getAppData = isProduction
   ? 'localhost/getAppData'
   : `${mockPath}/getAppData.json`;
 
-export { getAppData };
+const makeGetContainerData = (id: string) =>
+  isProduction
+    ? `localhost/getContainerData/${id}`
+    : `${mockPath}/containerData/${id}.json`;
+
+export { getAppData, makeGetContainerData };

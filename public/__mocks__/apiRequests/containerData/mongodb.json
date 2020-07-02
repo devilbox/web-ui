@@ -1,0 +1,18 @@
+{
+  "id": "mongodb",
+  "default_name": "MongoDB",
+  "name": "MongoDB",
+  "status": {
+    "available": true,
+    "connection": [
+      {
+        "hostname": "",
+        "success": true,
+        "error": null
+      }
+    ]
+  },
+  "is_running": true,
+  "version": "4.2.8",
+  "stack": "nosql"
+}

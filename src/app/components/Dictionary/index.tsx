@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 
 interface Item {
@@ -32,11 +32,11 @@ const Dictionary = ({ items }: Props) => {
 
   return (
     <dl className={classes.root}>
-      {items.map(item => (
-        <>
+      {items.map((item, index) => (
+        <Fragment key={`dictionary_${item.title}_${index}`}>
           <dt className={classes.title}>{item.title}</dt>
           <dd className={classes.value}>{item.value}</dd>
-        </>
+        </Fragment>
       ))}
     </dl>
   );

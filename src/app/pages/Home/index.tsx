@@ -2,9 +2,19 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Container, Grid } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { useSelector } from 'react-redux';
+import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import Stack from '../../components/Stack';
 import Panel from '../../components/Panel';
 import Dictionary from '../../components/Dictionary';
+import saga from '../../containers/App/saga';
+import {
+  makeStacksSelector,
+  makeCoreVersionSelector,
+  makeUIVersionSelector,
+  makeHealthPercentageSelector,
+} from '../../containers/App/selectors';
+import { sliceKey, reducer } from '../../containers/App/slice';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,6 +30,26 @@ const useStyles = makeStyles((theme: Theme) =>
 const Home = () => {
   const classes = useStyles();
 
+  useInjectReducer({ key: sliceKey, reducer });
+  useInjectSaga({ key: sliceKey, saga });
+
+  const stacks = useSelector(makeStacksSelector);
+  const versionCore = useSelector(makeCoreVersionSelector);
+  const versionUI = useSelector(makeUIVersionSelector);
+  const healthPercentage = useSelector(makeHealthPercentageSelector);
+
+  const renderStacks = () => {
+    if (!stacks) {
+      return undefined;
+    }
+
+    return stacks.map(stack => (
+      <Grid item xs={4} key={`grid_${stack.id}`}>
+        <Stack id={stack.id} text={stack.text} />
+      </Grid>
+    ));
+  };
+
   return (
     <>
       <Helmet>
@@ -34,14 +64,12 @@ const Home = () => {
               <Grid container>
                 <Grid item xs={6}>
                   <Dictionary
-                    items={[
-                      { title: 'devilbox core', value: 'v1.7.0 (2020-03-24)' },
-                    ]}
+                    items={[{ title: 'devilbox core', value: versionCore }]}
                   />
                 </Grid>
                 <Grid item xs={6}>
                   <Dictionary
-                    items={[{ title: 'devilbox UI', value: 'v0.1.2' }]}
+                    items={[{ title: 'devilbox UI', value: versionUI }]}
                   />
                 </Grid>
               </Grid>
@@ -55,77 +83,13 @@ const Home = () => {
             />
           </Grid>
           <Grid item xs={4}>
-            <Panel name="Health">100%</Panel>
+            <Panel name="Health">
+              {new Intl.NumberFormat(undefined, { style: 'percent' }).format(
+                healthPercentage,
+              )}
+            </Panel>
           </Grid>
-          <Grid item xs={4}>
-            <Stack
-              name="Base Stack"
-              containers={[
-                {
-                  id: 'bind',
-                  name: 'Bind',
-                  version: '9.11.3-1',
-                  status: 'running',
-                },
-                {
-                  id: 'php',
-                  name: 'PHP',
-                  version: '7.3.16',
-                  status: 'running',
-                },
-                {
-                  id: 'apache',
-                  name: 'Apache',
-                  version: '2.4.41',
-                  status: 'running',
-                },
-              ]}
-            />
-          </Grid>
-          <Grid item xs={4}>
-            <Stack
-              name="SQL Stack"
-              containers={[
-                {
-                  id: 'mariadb',
-                  name: 'mariadb',
-                  version: '10.3.22',
-                  status: 'running',
-                },
-                {
-                  id: 'postgresql',
-                  name: 'PostgreSQL',
-                  version: '12.1',
-                  status: 'running',
-                },
-              ]}
-            />
-          </Grid>
-          <Grid item xs={4}>
-            <Stack
-              name="Base Stack"
-              containers={[
-                {
-                  id: 'redis',
-                  name: 'Redis',
-                  version: '5.0.9',
-                  status: 'running',
-                },
-                {
-                  id: 'memcached',
-                  name: 'Memcached',
-                  version: '1.5.22',
-                  status: 'running',
-                },
-                {
-                  id: 'mongodb',
-                  name: 'MongoDB',
-                  version: '4.2.8',
-                  status: 'running',
-                },
-              ]}
-            />
-          </Grid>
+          {renderStacks()}
         </Grid>
       </Container>
     </>

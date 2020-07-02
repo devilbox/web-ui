@@ -1,0 +1,18 @@
+{
+  "id": "mariadb",
+  "default_name": "mariadb",
+  "name": "mariadb",
+  "status": {
+    "available": true,
+    "connection": [
+      {
+        "hostname": "",
+        "success": true,
+        "error": null
+      }
+    ]
+  },
+  "is_running": true,
+  "version": "10.3.22",
+  "stack": "sql"
+}

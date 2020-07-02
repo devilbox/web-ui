@@ -1,0 +1,18 @@
+{
+  "id": "memcached",
+  "default_name": "Memcached",
+  "name": "Memcached",
+  "status": {
+    "available": true,
+    "connection": [
+      {
+        "hostname": "",
+        "success": true,
+        "error": null
+      }
+    ]
+  },
+  "is_running": true,
+  "version": "1.5.22",
+  "stack": "nosql"
+}

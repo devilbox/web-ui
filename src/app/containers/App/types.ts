@@ -22,9 +22,42 @@ export interface SettingsItem {
   text: string;
 }
 
+export interface ContainerStatusConnectionItem {
+  error?: string;
+  hostname: string;
+  success: boolean;
+}
+
+export interface ContainerStatusItem {
+  available: boolean;
+  connection: ContainerStatusConnectionItem[];
+}
+
+export interface ContainerItemInitial {
+  id: string;
+}
+
+export interface ContainerItem extends ContainerItemInitial {
+  default_name: string;
+  name: string;
+  is_running: boolean;
+  stack: string;
+  status: ContainerStatusItem;
+  version: string;
+}
+
+export interface StackItem {
+  id: string;
+  text: string;
+}
+
 export interface AppStateData {
-  devilbox_version: string;
-  container_ids: string[];
+  versions: {
+    core: string;
+    ui: string;
+  };
+  stacks: StackItem[];
+  containers: (ContainerItemInitial | ContainerItem)[];
   networking: NetworkItem[];
   mounts: {
     data: MountItem[];
