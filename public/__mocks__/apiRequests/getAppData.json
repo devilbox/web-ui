@@ -180,7 +180,62 @@
         "docker_path": null
       }
     ],
-    "config": {},
+    "config": [
+      {
+        "id": "php_ini",
+        "docker_name": "php (ini)",
+        "host_path": "./cfg/php-ini-7.3",
+        "docker_path": "/etc/php-custom.d"
+      },
+      {
+        "id": "php_fpm",
+        "docker_name": "php (fpm)",
+        "host_path": "./cfg/php-fpm-7.3",
+        "docker_path": "/etc/php-fpm-custom.d"
+      },
+      {
+        "id": "httpd",
+        "docker_name": "httpd",
+        "host_path": "./cfg/apache-2.4",
+        "docker_path": "/etc/httpd-custom.d"
+      },
+      {
+        "id": "mysql",
+        "docker_name": "mysql",
+        "host_path": "./cfg/mariadb-10.3",
+        "docker_path": "/etc/mysql/conf.d"
+      },
+      {
+        "id": "pgsql",
+        "docker_name": "pgsql",
+        "host_path": null,
+        "docker_path": null
+      },
+      {
+        "id": "redis",
+        "docker_name": "redis",
+        "host_path": null,
+        "docker_path": null
+      },
+      {
+        "id": "memcached",
+        "docker_name": "memcached",
+        "host_path": null,
+        "docker_path": null
+      },
+      {
+        "id": "mongo",
+        "docker_name": "mongo",
+        "host_path": null,
+        "docker_path": null
+      },
+      {
+        "id": "bind",
+        "docker_name": "bind",
+        "host_path": null,
+        "docker_path": null
+      }
+    ],
     "log": {}
   },
   "settings": {
