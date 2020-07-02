@@ -89,6 +89,43 @@ const Home = () => {
             </Panel>
           </Grid>
           {renderStacks()}
+          <Grid item xs={4}>
+            <Panel name="PHP Container Setup">
+              <div>content</div>
+            </Panel>
+          </Grid>
+          <Grid item xs={4} />
+          <Grid item xs={4}>
+            <Panel name="PHP Container Status">
+              <div>content</div>
+            </Panel>
+          </Grid>
+          <Grid item xs={4}>
+            <Panel name="Networking">
+              <div>content</div>
+            </Panel>
+          </Grid>
+          <Grid item xs={4} />
+          <Grid item xs={4}>
+            <Panel name="Ports">
+              <div>content</div>
+            </Panel>
+          </Grid>
+          <Grid item xs={4}>
+            <Panel name="Data mounts">
+              <div>content</div>
+            </Panel>
+          </Grid>
+          <Grid item xs={4}>
+            <Panel name="Config mounts">
+              <div>content</div>
+            </Panel>
+          </Grid>
+          <Grid item xs={4}>
+            <Panel name="Log mounts">
+              <div>content</div>
+            </Panel>
+          </Grid>
         </Grid>
       </Container>
     </>
