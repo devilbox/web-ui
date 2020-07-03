@@ -71,3 +71,8 @@ export const makeNetworkingSelector = createSelector(
   app,
   appState => appState.networking,
 );
+
+export const makePortsSelector = createSelector(
+  app,
+  appState => appState.ports,
+);

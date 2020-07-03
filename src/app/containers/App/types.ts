@@ -12,8 +12,8 @@ export interface Mount {
 
 export interface Port {
   docker_name: string;
-  host_port: string;
-  docker_port: string;
+  host_port: string[];
+  docker_port: string[];
 }
 
 export interface Site {
