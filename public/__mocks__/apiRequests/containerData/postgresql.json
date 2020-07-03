@@ -14,5 +14,12 @@
   },
   "is_running": true,
   "version": "12.1",
-  "stack": "sql"
+  "stack": "sql",
+  "services": [
+    {
+      "id": "pgsql",
+      "name": "PgSQL connect",
+      "hostnames": ["pgsql", "127.168.238.13", "127.0.0.1"]
+    }
+  ]
 }

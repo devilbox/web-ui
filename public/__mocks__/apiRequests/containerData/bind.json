@@ -14,5 +14,12 @@
   },
   "is_running": true,
   "version": "9.11.3-1",
-  "stack": "base"
+  "stack": "base",
+  "services": [
+    {
+      "id": "bind",
+      "name": "Bind connect",
+      "hostnames": ["bind", "127.168.238.100"]
+    }
+  ]
 }

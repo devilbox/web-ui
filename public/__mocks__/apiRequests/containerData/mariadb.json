@@ -14,5 +14,12 @@
   },
   "is_running": true,
   "version": "10.3.22",
-  "stack": "sql"
+  "stack": "sql",
+  "services": [
+    {
+      "id": "mysql",
+      "name": "MySQL connect",
+      "hostnames": ["mysql", "127.168.238.12", "127.0.0.1"]
+    }
+  ]
 }

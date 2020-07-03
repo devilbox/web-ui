@@ -14,5 +14,12 @@
   },
   "is_running": true,
   "version": "5.0.9",
-  "stack": "nosql"
+  "stack": "nosql",
+  "services": [
+    {
+      "id": "redis",
+      "name": "Redis connect",
+      "hostnames": ["redis", "127.168.238.14", "127.0.0.1"]
+    }
+  ]
 }

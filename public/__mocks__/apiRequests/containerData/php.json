@@ -14,5 +14,6 @@
   },
   "is_running": true,
   "version": "7.3.16",
-  "stack": "base"
+  "stack": "base",
+  "services": []
 }

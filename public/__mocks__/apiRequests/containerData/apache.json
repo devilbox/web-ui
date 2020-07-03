@@ -14,5 +14,12 @@
   },
   "is_running": true,
   "version": "2.4.41",
-  "stack": "base"
+  "stack": "base",
+  "services": [
+    {
+      "id": "httpd",
+      "name": "Httpd connect",
+      "hostnames": ["httpd", "127.168.238.11", "random.loc"]
+    }
+  ]
 }

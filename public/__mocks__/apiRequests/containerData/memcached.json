@@ -14,5 +14,12 @@
   },
   "is_running": true,
   "version": "1.5.22",
-  "stack": "nosql"
+  "stack": "nosql",
+  "services": [
+    {
+      "id": "memcached",
+      "name": "Memcached connect",
+      "hostnames": ["memcd", "127.168.238.15", "127.0.0.1"]
+    }
+  ]
 }

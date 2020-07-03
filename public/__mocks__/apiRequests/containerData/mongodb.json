@@ -14,5 +14,12 @@
   },
   "is_running": true,
   "version": "4.2.8",
-  "stack": "nosql"
+  "stack": "nosql",
+  "services": [
+    {
+      "id": "mongodb",
+      "name": "MongoDB connect",
+      "hostnames": ["mongo", "127.168.238.16", "127.0.0.1"]
+    }
+  ]
 }
