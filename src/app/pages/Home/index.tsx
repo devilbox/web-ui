@@ -23,6 +23,7 @@ import PortsTable from './components/tables/Ports';
 import DataMountsTable from './components/tables/DataMounts';
 import ConfigMountsTable from './components/tables/ConfigMounts';
 import LogMountsTable from './components/tables/LogMounts';
+import ServicesTable from './components/tables/Services';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -122,7 +123,13 @@ const Home = () => {
           <Grid item xs={4} className={classes.panelWrapper} />
           <Grid item xs={4} className={classes.panelWrapper}>
             <Panel name="PHP Container Status">
-              <div>content</div>
+              <Typography variant="body2">
+                The PHP Docker can connect to the following services via the
+                specified hostnames and IP addresses.
+              </Typography>
+            </Panel>
+            <Panel>
+              <ServicesTable />
             </Panel>
           </Grid>
           <Grid item xs={4} className={classes.panelWrapper}>

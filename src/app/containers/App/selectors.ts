@@ -91,3 +91,9 @@ export const makeLogMountsSelector = createSelector(
   app,
   appState => appState.mounts.log,
 );
+
+export const makeServicesSelector = createSelector(app, appState =>
+  (appState.containers as Container[]).map(
+    container => container.services || [],
+  ),
+);

@@ -13,5 +13,12 @@ export default makeStyles((theme: Theme) =>
     header: {
       whiteSpace: 'nowrap',
     },
+    rowIcon: {
+      verticalAlign: 'middle',
+    },
+    rowValue: {
+      verticalAlign: 'middle',
+      marginLeft: theme.spacing(0.5),
+    },
   }),
 );

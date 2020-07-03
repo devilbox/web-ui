@@ -37,6 +37,12 @@ export interface ContainerInitial {
   id: string;
 }
 
+export interface Service {
+  id: string;
+  name: string;
+  hostnames: string[];
+}
+
 export interface Container extends ContainerInitial {
   default_name: string;
   name: string;
@@ -44,6 +50,7 @@ export interface Container extends ContainerInitial {
   stack: string;
   status: ContainerStatus;
   version: string;
+  services: Service[];
 }
 
 export interface Stack {
