@@ -10,4 +10,9 @@ const makeGetContainerData = (id: string) =>
     ? `localhost/getContainerData/${id}`
     : `${mockPath}/containerData/${id}.json`;
 
-export { getAppData, makeGetContainerData };
+const makeGetToolsData = (id: string) =>
+  isProduction
+    ? `localhost/getToolsData/${id}`
+    : `${mockPath}/tools/${id}.json`;
+
+export { getAppData, makeGetContainerData, makeGetToolsData };

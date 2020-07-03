@@ -23,6 +23,10 @@ const makeContainerIdsSelector = createSelector(app, appState =>
   appState.containers.map(container => container.id),
 );
 
+const makeToolsIdsSelector = createSelector(app, appState =>
+  appState.tools.map(tool => tool.id),
+);
+
 const makeStacksSelector = createSelector(app, appState => appState.stacks);
 
 const makeGetContainerByStackId = (stackId: string) =>
@@ -59,6 +63,7 @@ export {
   makeSitesInfosSelector,
   makeSitesToolsSelector,
   makeContainerIdsSelector,
+  makeToolsIdsSelector,
   makeStacksSelector,
   makeGetContainerByStackId,
   makeCoreVersionSelector,

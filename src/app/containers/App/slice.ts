@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
-import { ContainerState, AppStateData, Container } from './types';
+import { ContainerState, AppStateData, Container, Tool } from './types';
 
 export const initialState: ContainerState = {
   versions: {
@@ -47,6 +47,16 @@ const appSlice = createSlice({
           container => container.id === action.payload.id,
         )
       ] = action.payload;
+    },
+    setToolData(state, action: PayloadAction<Tool>) {
+      const index = state.tools.findIndex(
+        tool => tool.id === action.payload.id,
+      );
+
+      state.tools[index] = {
+        ...state.tools[index],
+        ...action.payload,
+      };
     },
   },
 });
