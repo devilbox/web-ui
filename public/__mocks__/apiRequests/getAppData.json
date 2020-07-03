@@ -287,6 +287,21 @@
       }
     ]
   },
+  "tools": [
+    { "id": "composer" },
+    { "id": "drupal_console" },
+    { "id": "drush7" },
+    { "id": "drush8" },
+    { "id": "drush9" },
+    { "id": "git" },
+    { "id": "laravel_installer" },
+    { "id": "mysqldump_secure" },
+    { "id": "node" },
+    { "id": "npm" },
+    { "id": "phalcon_devtools" },
+    { "id": "symfony_installer" },
+    { "id": "wordpress_cli" }
+  ],
   "settings": [
     {
       "setting": "uid",
