@@ -288,19 +288,58 @@
     ]
   },
   "tools": [
-    { "id": "composer" },
-    { "id": "drupal_console" },
-    { "id": "drush7" },
-    { "id": "drush8" },
-    { "id": "drush9" },
-    { "id": "git" },
-    { "id": "laravel_installer" },
-    { "id": "mysqldump_secure" },
-    { "id": "node" },
-    { "id": "npm" },
-    { "id": "phalcon_devtools" },
-    { "id": "symfony_installer" },
-    { "id": "wordpress_cli" }
+    {
+      "id": "composer",
+      "name": "composer"
+    },
+    {
+      "id": "drupal_console",
+      "name": "drupal-console"
+    },
+    {
+      "id": "drush7",
+      "name": "drush7"
+    },
+    {
+      "id": "drush8",
+      "name": "drush8"
+    },
+    {
+      "id": "drush9",
+      "name": "drush9"
+    },
+    {
+      "id": "git",
+      "name": "git"
+    },
+    {
+      "id": "laravel_installer",
+      "name": "Laravel installer"
+    },
+    {
+      "id": "mysqldump_secure",
+      "name": "mysqldump-secure"
+    },
+    {
+      "id": "node",
+      "name": "node"
+    },
+    {
+      "id": "npm",
+      "name": "npm"
+    },
+    {
+      "id": "phalcon_devtools",
+      "name": "Phalcon devtools"
+    },
+    {
+      "id": "symfony_installer",
+      "name": "Symfony installer"
+    },
+    {
+      "id": "wordpress_cli",
+      "name": "Wordpress cli"
+    }
   ],
   "settings": [
     {
