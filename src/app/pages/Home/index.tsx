@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Container, Grid } from '@material-ui/core';
+import { Container, Grid, Typography } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { useSelector } from 'react-redux';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
@@ -16,6 +16,7 @@ import {
   makeHealthPercentageSelector,
 } from '../../containers/App/selectors';
 import { sliceKey, reducer } from '../../containers/App/slice';
+import SettingsTable from './components/tables/Settings';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -91,7 +92,12 @@ const Home = () => {
           {renderStacks()}
           <Grid item xs={4}>
             <Panel name="PHP Container Setup">
-              <div>content</div>
+              <Typography variant="body2">
+                You can also enter the php container and work from inside. The
+                following is available inside the container:
+              </Typography>
+
+              <SettingsTable />
             </Panel>
           </Grid>
           <Grid item xs={4} />

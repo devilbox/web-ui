@@ -4,17 +4,17 @@ import { Container } from '../App/types';
 
 export const app = (state: RootState) => state.app;
 
-const makeDatabasesItemsSelector = createSelector(
+const makeSitesDatabasesSelector = createSelector(
   app,
   appState => appState.sites.databases,
 );
 
-const makeInfosItemsSelector = createSelector(
+const makeSitesInfosSelector = createSelector(
   app,
   appState => appState.sites.infos,
 );
 
-const makeToolsIemsSelector = createSelector(
+const makeSitesToolsSelector = createSelector(
   app,
   appState => appState.sites.tools,
 );
@@ -50,14 +50,17 @@ const makeHealthPercentageSelector = createSelector(
     ).length / appState.containers.length || 0,
 );
 
+const makeSettingsSelector = createSelector(app, appState => appState.settings);
+
 export {
-  makeDatabasesItemsSelector,
-  makeInfosItemsSelector,
-  makeToolsIemsSelector,
+  makeSitesDatabasesSelector,
+  makeSitesInfosSelector,
+  makeSitesToolsSelector,
   makeContainerIdsSelector,
   makeStacksSelector,
   makeGetContainerByStackId,
   makeCoreVersionSelector,
   makeUIVersionSelector,
   makeHealthPercentageSelector,
+  makeSettingsSelector,
 };
