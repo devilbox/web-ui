@@ -236,7 +236,56 @@
         "docker_path": null
       }
     ],
-    "log": {}
+    "log": [
+      {
+        "id": "php",
+        "docker_name": "php",
+        "host_path": "./log/php-fpm-7.3",
+        "docker_path": "/var/log/php"
+      },
+      {
+        "id": "httpd",
+        "docker_name": "httpd",
+        "host_path": "./log/apache-2.4",
+        "docker_path": "/var/log/apache-2.4"
+      },
+      {
+        "id": "mysql",
+        "docker_name": "mysql",
+        "host_path": "./log/mariadb-10.3",
+        "docker_path": "/var/log/mysql"
+      },
+      {
+        "id": "pgsql",
+        "docker_name": "pgsql",
+        "host_path": "./log/pgsql-12.1",
+        "docker_path": "/var/log/postgresql"
+      },
+      {
+        "id": "redis",
+        "docker_name": "redis",
+        "host_path": "./log/redis-5.0",
+        "docker_path": "/var/log/redis"
+      },
+      {
+        "id": "memcached",
+        "docker_name": "memcached",
+        "host_path": "./log/memcached-1.5",
+        "docker_path": "/var/log/memcached"
+      },
+      {
+        "id": "mongo",
+        "docker_name": "mongo",
+        "host_path": null,
+        "docker_path": null
+      },
+      {
+        "id": "bind",
+        "docker_name": "bind",
+        "host_path": null,
+        "docker_path": null
+      }
+    ]
   },
   "settings": {
     "databases": [
