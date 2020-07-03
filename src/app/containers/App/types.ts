@@ -54,6 +54,7 @@ export interface Stack {
 export interface Tool {
   id: string;
   name: string;
+  version?: string;
 }
 
 export interface Setting {

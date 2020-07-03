@@ -9,12 +9,12 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import { makeSettingsSelector } from '../../../../containers/App/selectors';
+import { makeToolsSelector } from '../../../../containers/App/selectors';
 import styles from './styles';
 
-const SettingsTable = () => {
+const ToolsTable = () => {
   const classes = styles();
-  const settings = useSelector(makeSettingsSelector);
+  const tools = useSelector(makeToolsSelector);
 
   return (
     <TableContainer className={classes.tableContainer}>
@@ -22,15 +22,15 @@ const SettingsTable = () => {
         <TableHead>
           <TableRow>
             <TableCell component="th" scope="row" colSpan={2}>
-              <Typography variant="button">Settings</Typography>
+              <Typography variant="button">Tools</Typography>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {settings.map(setting => (
-            <TableRow key={setting.setting}>
-              <TableCell>{setting.setting}</TableCell>
-              <TableCell>{setting.value}</TableCell>
+          {tools.map(tool => (
+            <TableRow key={tool.id}>
+              <TableCell>{tool.name}</TableCell>
+              <TableCell>{tool.version || <span>&#8213;</span>}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -39,4 +39,4 @@ const SettingsTable = () => {
   );
 };
 
-export default SettingsTable;
+export default ToolsTable;

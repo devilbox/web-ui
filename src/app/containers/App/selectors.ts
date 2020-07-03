@@ -52,6 +52,8 @@ const makeHealthPercentageSelector = createSelector(
 
 const makeSettingsSelector = createSelector(app, appState => appState.settings);
 
+const makeToolsSelector = createSelector(app, appState => appState.tools);
+
 export {
   makeSitesDatabasesSelector,
   makeSitesInfosSelector,
@@ -63,4 +65,5 @@ export {
   makeUIVersionSelector,
   makeHealthPercentageSelector,
   makeSettingsSelector,
+  makeToolsSelector,
 };

@@ -17,6 +17,7 @@ import {
 } from '../../containers/App/selectors';
 import { sliceKey, reducer } from '../../containers/App/slice';
 import SettingsTable from './components/tables/Settings';
+import ToolsTable from './components/tables/Tools';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -96,8 +97,12 @@ const Home = () => {
                 You can also enter the php container and work from inside. The
                 following is available inside the container:
               </Typography>
-
+            </Panel>
+            <Panel>
               <SettingsTable />
+            </Panel>
+            <Panel>
+              <ToolsTable />
             </Panel>
           </Grid>
           <Grid item xs={4} />
