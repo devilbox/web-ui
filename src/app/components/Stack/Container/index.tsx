@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       whiteSpace: 'nowrap',
+      boxShadow: '0 0 3px 0 rgba(0, 0, 0, 0.5)',
 
       '& + $root': {
         marginLeft: theme.spacing(2),
