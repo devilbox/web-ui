@@ -18,6 +18,7 @@ import {
 import { sliceKey, reducer } from '../../containers/App/slice';
 import SettingsTable from './components/tables/Settings';
 import ToolsTable from './components/tables/Tools';
+import NetworkingTable from './components/tables/Networking';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -113,7 +114,7 @@ const Home = () => {
           </Grid>
           <Grid item xs={4}>
             <Panel name="Networking">
-              <div>content</div>
+              <NetworkingTable />
             </Panel>
           </Grid>
           <Grid item xs={4} />

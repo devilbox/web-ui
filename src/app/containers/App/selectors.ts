@@ -4,49 +4,52 @@ import { Container } from '../App/types';
 
 export const app = (state: RootState) => state.app;
 
-const makeSitesDatabasesSelector = createSelector(
+export const makeSitesDatabasesSelector = createSelector(
   app,
   appState => appState.sites.databases,
 );
 
-const makeSitesInfosSelector = createSelector(
+export const makeSitesInfosSelector = createSelector(
   app,
   appState => appState.sites.infos,
 );
 
-const makeSitesToolsSelector = createSelector(
+export const makeSitesToolsSelector = createSelector(
   app,
   appState => appState.sites.tools,
 );
 
-const makeContainerIdsSelector = createSelector(app, appState =>
+export const makeContainerIdsSelector = createSelector(app, appState =>
   appState.containers.map(container => container.id),
 );
 
-const makeToolsIdsSelector = createSelector(app, appState =>
+export const makeToolsIdsSelector = createSelector(app, appState =>
   appState.tools.map(tool => tool.id),
 );
 
-const makeStacksSelector = createSelector(app, appState => appState.stacks);
+export const makeStacksSelector = createSelector(
+  app,
+  appState => appState.stacks,
+);
 
-const makeGetContainerByStackId = (stackId: string) =>
+export const makeGetContainerByStackId = (stackId: string) =>
   createSelector(app, appState =>
     (appState.containers as Container[]).filter(
       container => container.stack && container.stack === stackId,
     ),
   );
 
-const makeCoreVersionSelector = createSelector(
+export const makeCoreVersionSelector = createSelector(
   app,
   appState => appState.versions.core || 'n.a.',
 );
 
-const makeUIVersionSelector = createSelector(
+export const makeUIVersionSelector = createSelector(
   app,
   appState => appState.versions.ui || 'n.a.',
 );
 
-const makeHealthPercentageSelector = createSelector(
+export const makeHealthPercentageSelector = createSelector(
   app,
   appState =>
     (appState.containers as Container[]).filter(
@@ -54,21 +57,17 @@ const makeHealthPercentageSelector = createSelector(
     ).length / appState.containers.length || 0,
 );
 
-const makeSettingsSelector = createSelector(app, appState => appState.settings);
+export const makeSettingsSelector = createSelector(
+  app,
+  appState => appState.settings,
+);
 
-const makeToolsSelector = createSelector(app, appState => appState.tools);
+export const makeToolsSelector = createSelector(
+  app,
+  appState => appState.tools,
+);
 
-export {
-  makeSitesDatabasesSelector,
-  makeSitesInfosSelector,
-  makeSitesToolsSelector,
-  makeContainerIdsSelector,
-  makeToolsIdsSelector,
-  makeStacksSelector,
-  makeGetContainerByStackId,
-  makeCoreVersionSelector,
-  makeUIVersionSelector,
-  makeHealthPercentageSelector,
-  makeSettingsSelector,
-  makeToolsSelector,
-};
+export const makeNetworkingSelector = createSelector(
+  app,
+  appState => appState.networking,
+);

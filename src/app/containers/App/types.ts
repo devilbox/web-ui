@@ -1,6 +1,6 @@
 export interface Network {
   docker_name: string;
-  host_name: string;
+  hostname: string;
   ip: string;
 }
 
