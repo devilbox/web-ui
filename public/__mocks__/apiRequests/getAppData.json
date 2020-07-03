@@ -287,6 +287,36 @@
       }
     ]
   },
+  "settings": [
+    {
+      "setting": "uid",
+      "value": "1000"
+    },
+    {
+      "setting": "gid",
+      "value": "1000"
+    },
+    {
+      "setting": "vHost docroot dir",
+      "value": "htdocs"
+    },
+    {
+      "setting": "vHost config dir",
+      "value": ".devilbox"
+    },
+    {
+      "setting": "vHost TLD",
+      "value": "*.loc"
+    },
+    {
+      "setting": "DNS",
+      "value": "Enabled"
+    },
+    {
+      "setting": "Postfix",
+      "value": "Enabled"
+    }
+  ],
   "sites": {
     "databases": [
       {
