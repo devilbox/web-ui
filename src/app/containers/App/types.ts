@@ -11,6 +11,7 @@ export interface Mount {
 }
 
 export interface Port {
+  id: string;
   docker_name: string;
   host_port: string[];
   docker_port: string[];

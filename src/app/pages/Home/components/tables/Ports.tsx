@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import {
   Table,
   TableCell,
@@ -17,6 +17,36 @@ const NetworkingTable = () => {
   const classes = styles();
   const ports = useSelector(makePortsSelector);
 
+  const rows: ReactNode[] = [];
+
+  ports.forEach(port => {
+    (port.host_port || []).forEach((host, index) => {
+      if (index === 0) {
+        rows.push(
+          <TableRow key={`${port.id}_${host}`}>
+            <TableCell rowSpan={port.host_port.length}>
+              {port.docker_name}
+            </TableCell>
+
+            <TableCell>{host || NO_VALUE}</TableCell>
+            <TableCell>
+              {(ports[index] || {}).docker_port || NO_VALUE}
+            </TableCell>
+          </TableRow>,
+        );
+      } else {
+        rows.push(
+          <TableRow key={`${port.id}_${host}`}>
+            <TableCell>{host || NO_VALUE}</TableCell>
+            <TableCell>
+              {(ports[index] || {}).docker_port || NO_VALUE}
+            </TableCell>
+          </TableRow>,
+        );
+      }
+    });
+  });
+
   return (
     <TableContainer className={classes.tableContainer}>
       <Table size="small">
@@ -33,27 +63,7 @@ const NetworkingTable = () => {
             </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
-          {ports.map(port => (
-            <TableRow key={port.docker_name}>
-              <TableCell>{port.docker_name}</TableCell>
-              <TableCell>
-                {port.host_port
-                  ? port.host_port.map((host, index) => (
-                      <div key={`host_port_${index}`}>{host}</div>
-                    ))
-                  : NO_VALUE}
-              </TableCell>
-              <TableCell>
-                {port.docker_port
-                  ? port.docker_port.map((docker, index) => (
-                      <div key={`docker_port_${index}`}>{docker}</div>
-                    ))
-                  : NO_VALUE}
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+        <TableBody>{rows}</TableBody>
       </Table>
     </TableContainer>
   );
