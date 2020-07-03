@@ -1,54 +1,64 @@
-export interface NetworkItem {
+export interface Network {
   docker_name: string;
   host_name: string;
   ip: string;
 }
 
-export interface MountItem {
+export interface Mount {
   docker_name: string;
   host_path: string;
   docker_path: string;
 }
 
-export interface PortItem {
+export interface Port {
   docker_name: string;
   host_port: string;
   docker_port: string;
 }
 
-export interface SettingsItem {
+export interface Site {
   id: string;
   url: string;
   text: string;
 }
 
-export interface ContainerStatusConnectionItem {
+export interface ContainerStatusConnection {
   error?: string;
   hostname: string;
   success: boolean;
 }
 
-export interface ContainerStatusItem {
+export interface ContainerStatus {
   available: boolean;
-  connection: ContainerStatusConnectionItem[];
+  connection: ContainerStatusConnection[];
 }
 
-export interface ContainerItemInitial {
+export interface ContainerInitial {
   id: string;
 }
 
-export interface ContainerItem extends ContainerItemInitial {
+export interface Container extends ContainerInitial {
   default_name: string;
   name: string;
   is_running: boolean;
   stack: string;
-  status: ContainerStatusItem;
+  status: ContainerStatus;
   version: string;
 }
 
-export interface StackItem {
+export interface Stack {
   id: string;
   text: string;
+}
+
+export interface Tool {
+  id: string;
+  name: string;
+}
+
+export interface Setting {
+  setting: string;
+  value: string;
 }
 
 export interface AppStateData {
@@ -56,20 +66,22 @@ export interface AppStateData {
     core: string;
     ui: string;
   };
-  stacks: StackItem[];
-  containers: (ContainerItemInitial | ContainerItem)[];
-  networking: NetworkItem[];
+  stacks: Stack[];
+  containers: (ContainerInitial | Container)[];
+  networking: Network[];
   mounts: {
-    data: MountItem[];
-    config: MountItem[];
-    log: MountItem[];
+    data: Mount[];
+    config: Mount[];
+    log: Mount[];
   };
-  ports: PortItem[];
-  settings: {
-    databases: SettingsItem[];
-    infos: SettingsItem[];
-    tools: SettingsItem[];
+  ports: Port[];
+  sites: {
+    databases: Site[];
+    infos: Site[];
+    tools: Site[];
   };
+  tools: Tool[];
+  settings: Setting[];
 }
 
 interface AppState extends AppStateData {

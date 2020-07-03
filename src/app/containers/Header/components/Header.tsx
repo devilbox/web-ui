@@ -12,7 +12,7 @@ import {
   ExpandMore as ExpandMoreIcon,
 } from '@material-ui/icons';
 import { NavLink } from 'react-router-dom';
-import { SettingsItem } from '../../App/types';
+import { Site } from '../../App/types';
 
 import Menu from '../../../components/Menu';
 
@@ -40,9 +40,9 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 interface Props {
-  databases: SettingsItem[];
-  infos: SettingsItem[];
-  tools: SettingsItem[];
+  databases: Site[];
+  infos: Site[];
+  tools: Site[];
 }
 
 const Header = ({ databases, infos, tools }: Props) => {

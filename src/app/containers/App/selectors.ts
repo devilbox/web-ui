@@ -1,22 +1,22 @@
 import { createSelector } from '@reduxjs/toolkit';
 import RootState from '../../../types/RootState';
-import { ContainerItem } from '../App/types';
+import { Container } from '../App/types';
 
 export const app = (state: RootState) => state.app;
 
 const makeDatabasesItemsSelector = createSelector(
   app,
-  appState => appState.settings.databases,
+  appState => appState.sites.databases,
 );
 
 const makeInfosItemsSelector = createSelector(
   app,
-  appState => appState.settings.infos,
+  appState => appState.sites.infos,
 );
 
 const makeToolsIemsSelector = createSelector(
   app,
-  appState => appState.settings.tools,
+  appState => appState.sites.tools,
 );
 
 const makeContainerIdsSelector = createSelector(app, appState =>
@@ -27,7 +27,7 @@ const makeStacksSelector = createSelector(app, appState => appState.stacks);
 
 const makeGetContainerByStackId = (stackId: string) =>
   createSelector(app, appState =>
-    (appState.containers as ContainerItem[]).filter(
+    (appState.containers as Container[]).filter(
       container => container.stack && container.stack === stackId,
     ),
   );
@@ -45,7 +45,7 @@ const makeUIVersionSelector = createSelector(
 const makeHealthPercentageSelector = createSelector(
   app,
   appState =>
-    (appState.containers as ContainerItem[]).filter(
+    (appState.containers as Container[]).filter(
       container => container.is_running,
     ).length / appState.containers.length || 0,
 );

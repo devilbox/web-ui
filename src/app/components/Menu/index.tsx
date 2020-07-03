@@ -1,13 +1,13 @@
 import React from 'react';
 import { Menu as MUIMenu, MenuItem } from '@material-ui/core';
-import { SettingsItem } from '../../containers/App/types';
+import { Site } from '../../containers/App/types';
 
 interface Props {
   id: string;
   open: boolean;
   handleClose: () => void;
   targetRef: HTMLElement | null;
-  items: SettingsItem[];
+  items: Site[];
 }
 
 const Menu = ({ id, open, handleClose, targetRef, items }: Props) => (

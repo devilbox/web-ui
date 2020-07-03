@@ -1,6 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
-import { ContainerState, AppStateData, ContainerItem } from './types';
+import { ContainerState, AppStateData, Container } from './types';
 
 export const initialState: ContainerState = {
   versions: {
@@ -16,11 +16,13 @@ export const initialState: ContainerState = {
     log: [],
   },
   ports: [],
-  settings: {
+  sites: {
     databases: [],
     infos: [],
     tools: [],
   },
+  tools: [],
+  settings: [],
   loading: false,
   error: undefined,
 };
@@ -39,7 +41,7 @@ const appSlice = createSlice({
       });
       state.loading = false;
     },
-    setContainerData(state, action: PayloadAction<ContainerItem>) {
+    setContainerData(state, action: PayloadAction<Container>) {
       state.containers[
         state.containers.findIndex(
           container => container.id === action.payload.id,
