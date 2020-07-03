@@ -10,6 +10,10 @@ interface Props {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      display: 'flex',
+      flexDirection: 'column',
+      flex: '1 1 auto',
+
       '& + $root': {
         marginTop: theme.spacing(2),
       },

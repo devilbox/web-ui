@@ -10,5 +10,8 @@ export default makeStyles((theme: Theme) =>
         marginTop: theme.spacing(2),
       },
     },
+    header: {
+      whiteSpace: 'nowrap',
+    },
   }),
 );

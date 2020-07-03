@@ -9,13 +9,13 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import { makeNetworkingSelector } from '../../../../containers/App/selectors';
+import { makeLogMountsSelector } from '../../../../containers/App/selectors';
 import styles from './styles';
 import { NO_VALUE } from './constants';
 
-const NetworkingTable = () => {
+const LogMountsTable = () => {
   const classes = styles();
-  const networking = useSelector(makeNetworkingSelector);
+  const logMounts = useSelector(makeLogMountsSelector);
 
   return (
     <TableContainer className={classes.tableContainer}>
@@ -26,19 +26,19 @@ const NetworkingTable = () => {
               <Typography variant="button">Docker</Typography>
             </TableCell>
             <TableCell component="th" scope="row">
-              <Typography variant="button">Hostname</Typography>
+              <Typography variant="button">Host path</Typography>
             </TableCell>
             <TableCell component="th" scope="row">
-              <Typography variant="button">IP</Typography>
+              <Typography variant="button">Docker path</Typography>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {networking.map(network => (
-            <TableRow key={network.docker_name}>
-              <TableCell>{network.docker_name || NO_VALUE}</TableCell>
-              <TableCell>{network.hostname || NO_VALUE}</TableCell>
-              <TableCell>{network.ip || NO_VALUE}</TableCell>
+          {logMounts.map(logMount => (
+            <TableRow key={logMount.docker_name}>
+              <TableCell>{logMount.docker_name || NO_VALUE}</TableCell>
+              <TableCell>{logMount.host_path || NO_VALUE}</TableCell>
+              <TableCell>{logMount.docker_path || NO_VALUE}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -47,4 +47,4 @@ const NetworkingTable = () => {
   );
 };
 
-export default NetworkingTable;
+export default LogMountsTable;

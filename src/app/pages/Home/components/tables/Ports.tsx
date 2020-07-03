@@ -11,6 +11,7 @@ import {
 import { useSelector } from 'react-redux';
 import { makePortsSelector } from '../../../../containers/App/selectors';
 import styles from './styles';
+import { NO_VALUE } from './constants';
 
 const NetworkingTable = () => {
   const classes = styles();
@@ -19,7 +20,7 @@ const NetworkingTable = () => {
   return (
     <TableContainer className={classes.tableContainer}>
       <Table size="small">
-        <TableHead>
+        <TableHead className={classes.header}>
           <TableRow>
             <TableCell component="th" scope="row">
               <Typography variant="button">Docker</Typography>
@@ -37,22 +38,18 @@ const NetworkingTable = () => {
             <TableRow key={port.docker_name}>
               <TableCell>{port.docker_name}</TableCell>
               <TableCell>
-                {port.host_port ? (
-                  port.host_port.map((host, index) => (
-                    <div key={`host_port_${index}`}>{host}</div>
-                  ))
-                ) : (
-                  <span>&#8213;</span>
-                )}
+                {port.host_port
+                  ? port.host_port.map((host, index) => (
+                      <div key={`host_port_${index}`}>{host}</div>
+                    ))
+                  : NO_VALUE}
               </TableCell>
               <TableCell>
-                {port.docker_port ? (
-                  port.docker_port.map((docker, index) => (
-                    <div key={`docker_port_${index}`}>{docker}</div>
-                  ))
-                ) : (
-                  <span>&#8213;</span>
-                )}
+                {port.docker_port
+                  ? port.docker_port.map((docker, index) => (
+                      <div key={`docker_port_${index}`}>{docker}</div>
+                    ))
+                  : NO_VALUE}
               </TableCell>
             </TableRow>
           ))}

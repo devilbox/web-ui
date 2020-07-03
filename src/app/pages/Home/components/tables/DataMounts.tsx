@@ -9,13 +9,13 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import { makeNetworkingSelector } from '../../../../containers/App/selectors';
+import { makeDataMountsSelector } from '../../../../containers/App/selectors';
 import styles from './styles';
 import { NO_VALUE } from './constants';
 
-const NetworkingTable = () => {
+const DataMountsTable = () => {
   const classes = styles();
-  const networking = useSelector(makeNetworkingSelector);
+  const dataMounts = useSelector(makeDataMountsSelector);
 
   return (
     <TableContainer className={classes.tableContainer}>
@@ -26,19 +26,19 @@ const NetworkingTable = () => {
               <Typography variant="button">Docker</Typography>
             </TableCell>
             <TableCell component="th" scope="row">
-              <Typography variant="button">Hostname</Typography>
+              <Typography variant="button">Host path</Typography>
             </TableCell>
             <TableCell component="th" scope="row">
-              <Typography variant="button">IP</Typography>
+              <Typography variant="button">Docker path</Typography>
             </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {networking.map(network => (
-            <TableRow key={network.docker_name}>
-              <TableCell>{network.docker_name || NO_VALUE}</TableCell>
-              <TableCell>{network.hostname || NO_VALUE}</TableCell>
-              <TableCell>{network.ip || NO_VALUE}</TableCell>
+          {dataMounts.map(dataMount => (
+            <TableRow key={dataMount.docker_name}>
+              <TableCell>{dataMount.docker_name || NO_VALUE}</TableCell>
+              <TableCell>{dataMount.host_path || NO_VALUE}</TableCell>
+              <TableCell>{dataMount.docker_path || NO_VALUE}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -47,4 +47,4 @@ const NetworkingTable = () => {
   );
 };
 
-export default NetworkingTable;
+export default DataMountsTable;

@@ -11,6 +11,7 @@ import {
 import { useSelector } from 'react-redux';
 import { makeToolsSelector } from '../../../../containers/App/selectors';
 import styles from './styles';
+import { NO_VALUE } from './constants';
 
 const ToolsTable = () => {
   const classes = styles();
@@ -19,7 +20,7 @@ const ToolsTable = () => {
   return (
     <TableContainer className={classes.tableContainer}>
       <Table size="small">
-        <TableHead>
+        <TableHead className={classes.header}>
           <TableRow>
             <TableCell component="th" scope="row" colSpan={2}>
               <Typography variant="button">Tools</Typography>
@@ -29,8 +30,8 @@ const ToolsTable = () => {
         <TableBody>
           {tools.map(tool => (
             <TableRow key={tool.id}>
-              <TableCell>{tool.name}</TableCell>
-              <TableCell>{tool.version || <span>&#8213;</span>}</TableCell>
+              <TableCell>{tool.name || NO_VALUE}</TableCell>
+              <TableCell>{tool.version || NO_VALUE}</TableCell>
             </TableRow>
           ))}
         </TableBody>

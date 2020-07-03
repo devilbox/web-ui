@@ -20,6 +20,9 @@ import SettingsTable from './components/tables/Settings';
 import ToolsTable from './components/tables/Tools';
 import NetworkingTable from './components/tables/Networking';
 import PortsTable from './components/tables/Ports';
+import DataMountsTable from './components/tables/DataMounts';
+import ConfigMountsTable from './components/tables/ConfigMounts';
+import LogMountsTable from './components/tables/LogMounts';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,6 +31,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     logo: {
       maxWidth: '100%',
+    },
+    panelWrapper: {
+      display: 'flex',
+      flexDirection: 'column',
     },
   }),
 );
@@ -49,7 +56,12 @@ const Home = () => {
     }
 
     return stacks.map(stack => (
-      <Grid item xs={4} key={`grid_${stack.id}`}>
+      <Grid
+        item
+        xs={4}
+        key={`grid_${stack.id}`}
+        className={classes.panelWrapper}
+      >
         <Stack id={stack.id} text={stack.text} />
       </Grid>
     ));
@@ -64,7 +76,7 @@ const Home = () => {
 
       <Container className={classes.root}>
         <Grid container spacing={2}>
-          <Grid item xs={4}>
+          <Grid item xs={4} className={classes.panelWrapper}>
             <Panel name="Version">
               <Grid container>
                 <Grid item xs={6}>
@@ -80,20 +92,20 @@ const Home = () => {
               </Grid>
             </Panel>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} className={classes.panelWrapper}>
             <img
               src={`${process.env.PUBLIC_URL}/logo/long/banner_512_trans.png`}
               alt="logo"
               className={classes.logo}
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} className={classes.panelWrapper}>
             <Panel name="Health">
               <HealthBar percentage={healthPercentage} />
             </Panel>
           </Grid>
           {renderStacks()}
-          <Grid item xs={4}>
+          <Grid item xs={4} className={classes.panelWrapper}>
             <Panel name="PHP Container Setup">
               <Typography variant="body2">
                 You can also enter the php container and work from inside. The
@@ -107,36 +119,36 @@ const Home = () => {
               <ToolsTable />
             </Panel>
           </Grid>
-          <Grid item xs={4} />
-          <Grid item xs={4}>
+          <Grid item xs={4} className={classes.panelWrapper} />
+          <Grid item xs={4} className={classes.panelWrapper}>
             <Panel name="PHP Container Status">
               <div>content</div>
             </Panel>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} className={classes.panelWrapper}>
             <Panel name="Networking">
               <NetworkingTable />
             </Panel>
           </Grid>
-          <Grid item xs={4} />
-          <Grid item xs={4}>
+          <Grid item xs={4} className={classes.panelWrapper} />
+          <Grid item xs={4} className={classes.panelWrapper}>
             <Panel name="Ports">
               <PortsTable />
             </Panel>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} className={classes.panelWrapper}>
             <Panel name="Data mounts">
-              <div>content</div>
+              <DataMountsTable />
             </Panel>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} className={classes.panelWrapper}>
             <Panel name="Config mounts">
-              <div>content</div>
+              <ConfigMountsTable />
             </Panel>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} className={classes.panelWrapper}>
             <Panel name="Log mounts">
-              <div>content</div>
+              <LogMountsTable />
             </Panel>
           </Grid>
         </Grid>

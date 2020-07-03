@@ -76,3 +76,18 @@ export const makePortsSelector = createSelector(
   app,
   appState => appState.ports,
 );
+
+export const makeDataMountsSelector = createSelector(
+  app,
+  appState => appState.mounts.data,
+);
+
+export const makeConfigMountsSelector = createSelector(
+  app,
+  appState => appState.mounts.config,
+);
+
+export const makeLogMountsSelector = createSelector(
+  app,
+  appState => appState.mounts.log,
+);
