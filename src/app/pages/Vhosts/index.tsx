@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Container, Typography } from '@material-ui/core';
 import DefaultContent from './components/Default';
+import Table from './components/Table';
 
 interface Props {
   vhosts: string[];
@@ -18,15 +19,13 @@ const Vhosts = ({ vhosts }: Props) => (
         Virtual hosts
       </Typography>
 
-      {vhosts ? (
-        <Typography variant="body1" gutterBottom>
-          Content
-        </Typography>
-      ) : (
-        <DefaultContent />
-      )}
+      {vhosts ? <Table /> : <DefaultContent />}
     </Container>
   </>
 );
+
+Vhosts.defaultProps = {
+  vhosts: ['1'],
+};
 
 export default Vhosts;
