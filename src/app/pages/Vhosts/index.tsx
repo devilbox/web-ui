@@ -1,8 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Container, Typography } from '@material-ui/core';
+import DefaultContent from './components/Default';
 
-const Vhosts = () => (
+interface Props {
+  vhosts: string[];
+}
+
+const Vhosts = ({ vhosts }: Props) => (
   <>
     <Helmet>
       <title>Vhosts</title>
@@ -13,9 +18,13 @@ const Vhosts = () => (
         Virtual hosts
       </Typography>
 
-      <Typography variant="body1" gutterBottom>
-        Content
-      </Typography>
+      {vhosts ? (
+        <Typography variant="body1" gutterBottom>
+          Content
+        </Typography>
+      ) : (
+        <DefaultContent />
+      )}
     </Container>
   </>
 );
