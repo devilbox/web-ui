@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import {
   Table,
   TableBody,
@@ -8,8 +9,15 @@ import {
   TableRow,
   Paper,
 } from '@material-ui/core';
+import {
+  makeHasVhostsSortedByProjectSelector,
+  makeTldSuffixSelector,
+} from '../selectors';
 
 const TableContent = () => {
+  const vhosts = useSelector(makeHasVhostsSortedByProjectSelector);
+  const tldSuffix = useSelector(makeTldSuffixSelector);
+
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -23,41 +31,23 @@ const TableContent = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell>Row 1 - Cell 1</TableCell>
-            <TableCell>Row 1 - Cell 2</TableCell>
-            <TableCell>Row 1 - Cell 3</TableCell>
-            <TableCell>Row 1 - Cell 4</TableCell>
-            <TableCell>Row 1 - Cell 5</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Row 2 - Cell 1</TableCell>
-            <TableCell>Row 2 - Cell 2</TableCell>
-            <TableCell>Row 2 - Cell 3</TableCell>
-            <TableCell>Row 2 - Cell 4</TableCell>
-            <TableCell>Row 2 - Cell 5</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Row 3 - Cell 1</TableCell>
-            <TableCell>Row 3 - Cell 2</TableCell>
-            <TableCell>Row 3 - Cell 3</TableCell>
-            <TableCell>Row 3 - Cell 4</TableCell>
-            <TableCell>Row 3 - Cell 5</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Row 4 - Cell 1</TableCell>
-            <TableCell>Row 4 - Cell 2</TableCell>
-            <TableCell>Row 4 - Cell 3</TableCell>
-            <TableCell>Row 4 - Cell 4</TableCell>
-            <TableCell>Row 4 - Cell 5</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Row 5 - Cell 1</TableCell>
-            <TableCell>Row 5 - Cell 2</TableCell>
-            <TableCell>Row 5 - Cell 3</TableCell>
-            <TableCell>Row 5 - Cell 4</TableCell>
-            <TableCell>Row 5 - Cell 5</TableCell>
-          </TableRow>
+          {vhosts.map(vhost => (
+            <TableRow key={vhost.id}>
+              <TableCell>{vhost.project}</TableCell>
+              <TableCell>{vhost.path}</TableCell>
+              <TableCell>{vhost.config_path ? 'YES' : 'NO'}</TableCell>
+              <TableCell>{vhost.initial_error ? 'YES' : 'NO'}</TableCell>
+              <TableCell>
+                <a
+                  href={`${vhost.project}.${tldSuffix}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {vhost.project}.{tldSuffix}
+                </a>
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

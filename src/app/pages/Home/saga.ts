@@ -16,8 +16,6 @@ import {
 function* fetchAppData() {
   const dataAlreadyFetched = yield select(makeDataIsFetchedSelector);
 
-  console.log(dataAlreadyFetched);
-
   if (!dataAlreadyFetched) {
     const data: ContainerState = yield axios
       .get(GET_DOCKER_DATA_API)

@@ -1,19 +1,19 @@
 {
   "vhosts": [
     {
-      "id": "user1",
-      "project": "user1",
-      "path": "./data/www/user1",
-      "config_path": "vhost.d/user1.conf",
+      "id": "user2",
+      "project": "user2",
+      "path": "./data/www/user2",
+      "config_path": "vhost.d/user2.conf",
       "custom_config_path": null,
       "initial_error": null,
       "domain": "127.0.0.1"
     },
     {
-      "id": "user2",
-      "project": "user2",
-      "path": "./data/www/user2",
-      "config_path": "vhost.d/user2.conf",
+      "id": "user1",
+      "project": "user1",
+      "path": "./data/www/user1",
+      "config_path": "vhost.d/user1.conf",
       "custom_config_path": null,
       "initial_error": null,
       "domain": "127.0.0.1"

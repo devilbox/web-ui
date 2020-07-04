@@ -78,11 +78,11 @@ export interface DockerStateData {
   settings: Setting[];
 }
 
-interface AppState extends DockerStateData {
+interface DockerState extends DockerStateData {
   __meta: {
     fetch: 'unstarted' | 'started' | 'done';
   };
   error?: string;
 }
 
-export type ContainerState = AppState;
+export type ContainerState = DockerState;
