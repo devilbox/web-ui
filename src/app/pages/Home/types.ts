@@ -17,12 +17,6 @@ export interface Port {
   docker_port: string[];
 }
 
-export interface Site {
-  id: string;
-  url: string;
-  text: string;
-}
-
 export interface ContainerStatusConnection {
   error?: string;
   hostname: string;
@@ -70,11 +64,7 @@ export interface Setting {
   value: string;
 }
 
-export interface AppStateData {
-  versions: {
-    core: string;
-    ui: string;
-  };
+export interface DockerStateData {
   stacks: Stack[];
   containers: (ContainerInitial | Container)[];
   networking: Network[];
@@ -84,16 +74,11 @@ export interface AppStateData {
     log: Mount[];
   };
   ports: Port[];
-  sites: {
-    databases: Site[];
-    infos: Site[];
-    tools: Site[];
-  };
   tools: Tool[];
   settings: Setting[];
 }
 
-interface AppState extends AppStateData {
+interface AppState extends DockerStateData {
   loading: boolean;
   error?: string;
 }

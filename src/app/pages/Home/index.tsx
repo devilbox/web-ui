@@ -10,12 +10,11 @@ import Panel from '../../components/Panel';
 import HealthBar from '../../components/HealthBar';
 import Dictionary from '../../components/Dictionary';
 import saga from './saga';
+import { makeStacksSelector, makeHealthPercentageSelector } from './selectors';
 import {
-  makeStacksSelector,
   makeCoreVersionSelector,
   makeUIVersionSelector,
-  makeHealthPercentageSelector,
-} from './selectors';
+} from '../../selectors';
 import { sliceKey, reducer, actions } from './slice';
 import SettingsTable from './components/tables/Settings';
 import ToolsTable from './components/tables/Tools';

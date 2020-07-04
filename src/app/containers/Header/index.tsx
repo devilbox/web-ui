@@ -6,7 +6,7 @@ import {
   makeSitesDatabasesSelector,
   makeSitesInfosSelector,
   makeSitesToolsSelector,
-} from '../../pages/Home/selectors';
+} from '../../selectors';
 import Header from './components/Header';
 
 const HeaderContainer = () => {

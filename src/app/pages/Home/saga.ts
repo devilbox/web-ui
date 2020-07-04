@@ -4,14 +4,14 @@ import { actions } from './slice';
 import { ContainerState } from './types';
 import { makeContainerIdsSelector, makeToolsIdsSelector } from './selectors';
 import {
-  getHomeData as GET_HOME_DATA_API,
+  getDockerData as GET_DOCKER_DATA_API,
   makeGetContainerData,
   makeGetToolsData,
 } from '../../../apis';
 
 function* fetchAppData() {
   const data: ContainerState = yield axios
-    .get(GET_HOME_DATA_API)
+    .get(GET_DOCKER_DATA_API)
     .then(response => response.data);
 
   if (data) {

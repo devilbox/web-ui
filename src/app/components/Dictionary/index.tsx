@@ -35,7 +35,9 @@ const Dictionary = ({ items }: Props) => {
       {items.map((item, index) => (
         <Fragment key={`dictionary_${item.title}_${index}`}>
           <dt className={classes.title}>{item.title}</dt>
-          <dd className={classes.value}>{item.value}</dd>
+          <dd className={classes.value}>
+            {item.value || <span>&#8213;</span>}
+          </dd>
         </Fragment>
       ))}
     </dl>

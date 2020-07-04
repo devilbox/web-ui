@@ -1,12 +1,8 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from 'utils/@reduxjs/toolkit';
-import { ContainerState, AppStateData, Container, Tool } from './types';
+import { ContainerState, DockerStateData, Container, Tool } from './types';
 
 export const initialState: ContainerState = {
-  versions: {
-    core: '',
-    ui: '',
-  },
   stacks: [],
   containers: [],
   networking: [],
@@ -16,11 +12,6 @@ export const initialState: ContainerState = {
     log: [],
   },
   ports: [],
-  sites: {
-    databases: [],
-    infos: [],
-    tools: [],
-  },
   tools: [],
   settings: [],
   loading: false,
@@ -28,14 +19,14 @@ export const initialState: ContainerState = {
 };
 
 const appSlice = createSlice({
-  name: 'home',
+  name: 'docker',
   initialState,
   reducers: {
     fetchData(state) {
       state.loading = true;
       state.error = undefined;
     },
-    setData(state, action: PayloadAction<AppStateData>) {
+    setData(state, action: PayloadAction<DockerStateData>) {
       Object.keys(action.payload).forEach(key => {
         state[key] = action.payload[key];
       });

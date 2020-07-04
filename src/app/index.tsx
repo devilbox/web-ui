@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import { Container, CssBaseline, Box } from '@material-ui/core';
@@ -11,7 +12,10 @@ import {
 } from '@material-ui/core/styles';
 
 import { GlobalStyle } from 'styles/global-styles';
+import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 
+import saga from './saga';
+import { sliceKey, reducer, actions } from './slice';
 import HomePage from './pages/Home/Loadable';
 import MailsPage from './pages/Mails/Loadable';
 import VhostsPage from './pages/Vhosts/Loadable';
@@ -41,6 +45,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const App = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useInjectReducer({ key: sliceKey, reducer });
+  useInjectSaga({ key: sliceKey, saga });
+
+  useEffect(() => {
+    dispatch(actions.fetchData());
+  }, [dispatch]);
 
   return (
     <BrowserRouter>

@@ -2,98 +2,73 @@ import { createSelector } from '@reduxjs/toolkit';
 import RootState from '../../../types/RootState';
 import { Container } from './types';
 
-export const home = (state: RootState) => state.home;
+export const docker = (state: RootState) => state.docker;
 
-export const makeSitesDatabasesSelector = createSelector(
-  home,
-  homeState => homeState.sites.databases,
+export const makeContainerIdsSelector = createSelector(docker, dockerState =>
+  dockerState.containers.map(container => container.id),
 );
 
-export const makeSitesInfosSelector = createSelector(
-  home,
-  homeState => homeState.sites.infos,
-);
-
-export const makeSitesToolsSelector = createSelector(
-  home,
-  homeState => homeState.sites.tools,
-);
-
-export const makeContainerIdsSelector = createSelector(home, homeState =>
-  homeState.containers.map(container => container.id),
-);
-
-export const makeToolsIdsSelector = createSelector(home, homeState =>
-  homeState.tools.map(tool => tool.id),
+export const makeToolsIdsSelector = createSelector(docker, dockerState =>
+  dockerState.tools.map(tool => tool.id),
 );
 
 export const makeStacksSelector = createSelector(
-  home,
-  homeState => homeState.stacks,
+  docker,
+  dockerState => dockerState.stacks,
 );
 
 export const makeGetContainerByStackId = (stackId: string) =>
-  createSelector(home, homeState =>
-    (homeState.containers as Container[]).filter(
+  createSelector(docker, dockerState =>
+    (dockerState.containers as Container[]).filter(
       container => container.stack && container.stack === stackId,
     ),
   );
 
-export const makeCoreVersionSelector = createSelector(
-  home,
-  homeState => homeState.versions.core || 'n.a.',
-);
-
-export const makeUIVersionSelector = createSelector(
-  home,
-  homeState => homeState.versions.ui || 'n.a.',
-);
-
 export const makeHealthPercentageSelector = createSelector(
-  home,
-  homeState =>
-    (homeState.containers as Container[]).filter(
+  docker,
+  dockerState =>
+    (dockerState.containers as Container[]).filter(
       container => container.is_running,
-    ).length / homeState.containers.length || 0,
+    ).length / dockerState.containers.length || 0,
 );
 
 export const makeSettingsSelector = createSelector(
-  home,
-  homeState => homeState.settings,
+  docker,
+  dockerState => dockerState.settings,
 );
 
 export const makeToolsSelector = createSelector(
-  home,
-  homeState => homeState.tools,
+  docker,
+  dockerState => dockerState.tools,
 );
 
 export const makeNetworkingSelector = createSelector(
-  home,
-  homeState => homeState.networking,
+  docker,
+  dockerState => dockerState.networking,
 );
 
 export const makePortsSelector = createSelector(
-  home,
-  homeState => homeState.ports,
+  docker,
+  dockerState => dockerState.ports,
 );
 
 export const makeDataMountsSelector = createSelector(
-  home,
-  homeState => homeState.mounts.data,
+  docker,
+  dockerState => dockerState.mounts.data,
 );
 
 export const makeConfigMountsSelector = createSelector(
-  home,
-  homeState => homeState.mounts.config,
+  docker,
+  dockerState => dockerState.mounts.config,
 );
 
 export const makeLogMountsSelector = createSelector(
-  home,
-  homeState => homeState.mounts.log,
+  docker,
+  dockerState => dockerState.mounts.log,
 );
 
-export const makeServicesSelector = createSelector(home, homeState =>
-  (homeState.containers as Container[]).map(
+export const makeServicesSelector = createSelector(docker, dockerState =>
+  (dockerState.containers as Container[]).map(
     container => container.services || [],
   ),
 );
