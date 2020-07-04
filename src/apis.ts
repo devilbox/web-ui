@@ -1,9 +1,9 @@
 const isProduction = process.env.NODE_ENV === 'production';
 const mockPath = `${process.env.PUBLIC_URL}/__mocks__/apiRequests`;
 
-const getAppData = isProduction
-  ? 'localhost/getAppData'
-  : `${mockPath}/getAppData.json`;
+const getHomeData = isProduction
+  ? 'localhost/getHomeData'
+  : `${mockPath}/getHomeData.json`;
 
 const makeGetContainerData = (id: string) =>
   isProduction
@@ -15,4 +15,4 @@ const makeGetToolsData = (id: string) =>
     ? `localhost/getToolsData/${id}`
     : `${mockPath}/tools/${id}.json`;
 
-export { getAppData, makeGetContainerData, makeGetToolsData };
+export { getHomeData, makeGetContainerData, makeGetToolsData };
