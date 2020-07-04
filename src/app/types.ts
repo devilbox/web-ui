@@ -17,7 +17,9 @@ export interface AppStateData {
 }
 
 interface AppState extends AppStateData {
-  loading: boolean;
+  __meta: {
+    fetch: 'unstarted' | 'started' | 'done';
+  };
   error?: string;
 }
 

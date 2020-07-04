@@ -14,8 +14,10 @@ export const initialState: ContainerState = {
   ports: [],
   tools: [],
   settings: [],
-  loading: false,
   error: undefined,
+  __meta: {
+    fetch: 'unstarted',
+  },
 };
 
 const appSlice = createSlice({
@@ -23,14 +25,14 @@ const appSlice = createSlice({
   initialState,
   reducers: {
     fetchData(state) {
-      state.loading = true;
+      state.__meta.fetch = 'started';
       state.error = undefined;
     },
     setData(state, action: PayloadAction<DockerStateData>) {
       Object.keys(action.payload).forEach(key => {
         state[key] = action.payload[key];
       });
-      state.loading = false;
+      state.__meta.fetch = 'done';
     },
     setContainerData(state, action: PayloadAction<Container>) {
       state.containers[

@@ -4,6 +4,11 @@ import { Container } from './types';
 
 export const docker = (state: RootState) => state.docker;
 
+export const makeDataIsFetchedSelector = createSelector(
+  docker,
+  dockerState => dockerState.__meta.fetch === 'done',
+);
+
 export const makeContainerIdsSelector = createSelector(docker, dockerState =>
   dockerState.containers.map(container => container.id),
 );

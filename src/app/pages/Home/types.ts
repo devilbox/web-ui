@@ -79,7 +79,9 @@ export interface DockerStateData {
 }
 
 interface AppState extends DockerStateData {
-  loading: boolean;
+  __meta: {
+    fetch: 'unstarted' | 'started' | 'done';
+  };
   error?: string;
 }
 

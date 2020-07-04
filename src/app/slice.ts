@@ -12,7 +12,9 @@ export const initialState: ContainerState = {
     infos: [],
     tools: [],
   },
-  loading: false,
+  __meta: {
+    fetch: 'unstarted',
+  },
   error: undefined,
 };
 
@@ -21,14 +23,14 @@ const appSlice = createSlice({
   initialState,
   reducers: {
     fetchData(state) {
-      state.loading = true;
+      state.__meta.fetch = 'started';
       state.error = undefined;
     },
     setData(state, action: PayloadAction<AppStateData>) {
       Object.keys(action.payload).forEach(key => {
         state[key] = action.payload[key];
       });
-      state.loading = false;
+      state.__meta.fetch = 'done';
     },
   },
 });

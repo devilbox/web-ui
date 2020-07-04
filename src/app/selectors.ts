@@ -27,3 +27,8 @@ export const makeUIVersionSelector = createSelector(
   app,
   appState => appState.versions.ui,
 );
+
+export const makeDataIsFetchedSelector = createSelector(
+  app,
+  appState => appState.__meta.fetch === 'done',
+);
