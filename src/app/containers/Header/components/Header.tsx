@@ -12,7 +12,7 @@ import {
   ExpandMore as ExpandMoreIcon,
 } from '@material-ui/icons';
 import { NavLink } from 'react-router-dom';
-import { Site } from '../../App/types';
+import { Site } from '../../../pages/Home/types';
 
 import Menu from '../../../components/Menu';
 

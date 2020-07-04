@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useInjectReducer } from 'utils/redux-injectors';
-import { sliceKey, reducer } from '../App/slice';
+import { sliceKey, reducer } from '../../pages/Home/slice';
 import {
   makeSitesDatabasesSelector,
   makeSitesInfosSelector,
   makeSitesToolsSelector,
-} from '../App/selectors';
+} from '../../pages/Home/selectors';
 import Header from './components/Header';
 
 const HeaderContainer = () => {

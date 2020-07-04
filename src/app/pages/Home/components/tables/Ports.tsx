@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import { useSelector } from 'react-redux';
-import { makePortsSelector } from '../../../../containers/App/selectors';
+import { makePortsSelector } from '../../selectors';
 import styles from './styles';
 import { NO_VALUE } from './constants';
 

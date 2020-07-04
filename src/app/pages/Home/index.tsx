@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Helmet } from 'react-helmet-async';
 import { Container, Grid, Typography } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
@@ -8,14 +9,14 @@ import Stack from '../../components/Stack';
 import Panel from '../../components/Panel';
 import HealthBar from '../../components/HealthBar';
 import Dictionary from '../../components/Dictionary';
-import saga from '../../containers/App/saga';
+import saga from './saga';
 import {
   makeStacksSelector,
   makeCoreVersionSelector,
   makeUIVersionSelector,
   makeHealthPercentageSelector,
-} from '../../containers/App/selectors';
-import { sliceKey, reducer } from '../../containers/App/slice';
+} from './selectors';
+import { sliceKey, reducer, actions } from './slice';
 import SettingsTable from './components/tables/Settings';
 import ToolsTable from './components/tables/Tools';
 import NetworkingTable from './components/tables/Networking';
@@ -27,9 +28,6 @@ import ServicesTable from './components/tables/Services';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      paddingTop: theme.spacing(4),
-    },
     logo: {
       maxWidth: '100%',
     },
@@ -41,10 +39,15 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const Home = () => {
+  const dispatch = useDispatch();
   const classes = useStyles();
 
   useInjectReducer({ key: sliceKey, reducer });
   useInjectSaga({ key: sliceKey, saga });
+
+  useEffect(() => {
+    dispatch(actions.fetchData());
+  }, [dispatch]);
 
   const stacks = useSelector(makeStacksSelector);
   const versionCore = useSelector(makeCoreVersionSelector);
@@ -75,7 +78,7 @@ const Home = () => {
         <meta name="description" content="Devilbox Web-UI" />
       </Helmet>
 
-      <Container className={classes.root}>
+      <Container>
         <Grid container spacing={2}>
           <Grid item xs={4} className={classes.panelWrapper}>
             <Panel name="Version">

@@ -1,5 +1,5 @@
-import { ContainerState as AppState } from 'app/containers/App/types';
+import { ContainerState as AppState } from 'app/pages/Home/types';
 
 export default interface RootState {
-  app: AppState;
+  home: AppState;
 }

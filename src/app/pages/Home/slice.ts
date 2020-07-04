@@ -28,7 +28,7 @@ export const initialState: ContainerState = {
 };
 
 const appSlice = createSlice({
-  name: 'app',
+  name: 'home',
   initialState,
   reducers: {
     fetchData(state) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu as MUIMenu, MenuItem } from '@material-ui/core';
-import { Site } from '../../containers/App/types';
+import { Site } from '../../pages/Home/types';
 
 interface Props {
   id: string;

@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import { CheckCircle as CheckCircleIcon } from '@material-ui/icons';
 import { useSelector } from 'react-redux';
-import { makeServicesSelector } from '../../../../containers/App/selectors';
+import { makeServicesSelector } from '../../selectors';
 import styles from './styles';
 
 const ServicesTable = () => {
