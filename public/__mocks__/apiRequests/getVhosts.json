@@ -1,0 +1,461 @@
+{
+  "vhosts": [
+    {
+      "id": "user1",
+      "project": "user1",
+      "path": "./data/www/user1",
+      "config_path": "vhost.d/user1.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user2",
+      "project": "user2",
+      "path": "./data/www/user2",
+      "config_path": "vhost.d/user2.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user3",
+      "project": "user3",
+      "path": "./data/www/user3",
+      "config_path": "vhost.d/user3.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user4",
+      "project": "user4",
+      "path": "./data/www/user4",
+      "config_path": "vhost.d/user4.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user5",
+      "project": "user5",
+      "path": "./data/www/user5",
+      "config_path": "vhost.d/user5.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user6",
+      "project": "user6",
+      "path": "./data/www/user6",
+      "config_path": "vhost.d/user6.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user7",
+      "project": "user7",
+      "path": "./data/www/user7",
+      "config_path": "vhost.d/user7.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user8",
+      "project": "user8",
+      "path": "./data/www/user8",
+      "config_path": "vhost.d/user8.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user9",
+      "project": "user9",
+      "path": "./data/www/user9",
+      "config_path": "vhost.d/user9.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user10",
+      "project": "user10",
+      "path": "./data/www/user10",
+      "config_path": "vhost.d/user10.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user11",
+      "project": "user11",
+      "path": "./data/www/user11",
+      "config_path": "vhost.d/user11.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user12",
+      "project": "user12",
+      "path": "./data/www/user12",
+      "config_path": "vhost.d/user12.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user13",
+      "project": "user13",
+      "path": "./data/www/user13",
+      "config_path": "vhost.d/user13.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user14",
+      "project": "user14",
+      "path": "./data/www/user14",
+      "config_path": "vhost.d/user14.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user15",
+      "project": "user15",
+      "path": "./data/www/user15",
+      "config_path": "vhost.d/user15.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user16",
+      "project": "user16",
+      "path": "./data/www/user16",
+      "config_path": "vhost.d/user16.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user17",
+      "project": "user17",
+      "path": "./data/www/user17",
+      "config_path": "vhost.d/user17.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user18",
+      "project": "user18",
+      "path": "./data/www/user18",
+      "config_path": "vhost.d/user18.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user19",
+      "project": "user19",
+      "path": "./data/www/user19",
+      "config_path": "vhost.d/user19.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user20",
+      "project": "user20",
+      "path": "./data/www/user20",
+      "config_path": "vhost.d/user20.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user21",
+      "project": "user21",
+      "path": "./data/www/user21",
+      "config_path": "vhost.d/user21.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user22",
+      "project": "user22",
+      "path": "./data/www/user22",
+      "config_path": "vhost.d/user22.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user23",
+      "project": "user23",
+      "path": "./data/www/user23",
+      "config_path": "vhost.d/user23.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user24",
+      "project": "user24",
+      "path": "./data/www/user24",
+      "config_path": "vhost.d/user24.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user25",
+      "project": "user25",
+      "path": "./data/www/user25",
+      "config_path": "vhost.d/user25.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user26",
+      "project": "user26",
+      "path": "./data/www/user26",
+      "config_path": "vhost.d/user26.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user27",
+      "project": "user27",
+      "path": "./data/www/user27",
+      "config_path": "vhost.d/user27.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user28",
+      "project": "user28",
+      "path": "./data/www/user28",
+      "config_path": "vhost.d/user28.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user29",
+      "project": "user29",
+      "path": "./data/www/user29",
+      "config_path": "vhost.d/user29.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user30",
+      "project": "user30",
+      "path": "./data/www/user30",
+      "config_path": "vhost.d/user30.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user31",
+      "project": "user31",
+      "path": "./data/www/user31",
+      "config_path": "vhost.d/user31.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user32",
+      "project": "user32",
+      "path": "./data/www/user32",
+      "config_path": "vhost.d/user32.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user33",
+      "project": "user33",
+      "path": "./data/www/user33",
+      "config_path": "vhost.d/user33.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user34",
+      "project": "user34",
+      "path": "./data/www/user34",
+      "config_path": "vhost.d/user34.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user35",
+      "project": "user35",
+      "path": "./data/www/user35",
+      "config_path": "vhost.d/user35.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user36",
+      "project": "user36",
+      "path": "./data/www/user36",
+      "config_path": "vhost.d/user36.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user37",
+      "project": "user37",
+      "path": "./data/www/user37",
+      "config_path": "vhost.d/user37.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user38",
+      "project": "user38",
+      "path": "./data/www/user38",
+      "config_path": "vhost.d/user38.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user39",
+      "project": "user39",
+      "path": "./data/www/user39",
+      "config_path": "vhost.d/user39.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user40",
+      "project": "user40",
+      "path": "./data/www/user40",
+      "config_path": "vhost.d/user40.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user41",
+      "project": "user41",
+      "path": "./data/www/user41",
+      "config_path": "vhost.d/user41.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user42",
+      "project": "user42",
+      "path": "./data/www/user42",
+      "config_path": "vhost.d/user42.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user43",
+      "project": "user43",
+      "path": "./data/www/user43",
+      "config_path": "vhost.d/user43.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user44",
+      "project": "user44",
+      "path": "./data/www/user44",
+      "config_path": "vhost.d/user44.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user45",
+      "project": "user45",
+      "path": "./data/www/user45",
+      "config_path": "vhost.d/user45.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user46",
+      "project": "user46",
+      "path": "./data/www/user46",
+      "config_path": "vhost.d/user46.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user47",
+      "project": "user47",
+      "path": "./data/www/user47",
+      "config_path": "vhost.d/user47.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user48",
+      "project": "user48",
+      "path": "./data/www/user48",
+      "config_path": "vhost.d/user48.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user49",
+      "project": "user49",
+      "path": "./data/www/user49",
+      "config_path": "vhost.d/user49.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    },
+    {
+      "id": "user50",
+      "project": "user50",
+      "path": "./data/www/user50",
+      "config_path": "vhost.d/user50.conf",
+      "custom_config_path": null,
+      "initial_error": null,
+      "domain": "127.0.0.1"
+    }
+  ],
+  "global_config_path": "/etc/hosts",
+  "tld_suffix": "loc",
+  "vhost_dir": "htdocs",
+  "error_templates": {
+    "missing_vhost_dir": "Missing htdocs directory in: {{path}}",
+    "missing_dns_record": "No Host DNS record found. Add the following to {{global_config_path}}: {{domain}} {{project}}.{{tld_suffix}}"
+  }
+}
