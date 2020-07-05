@@ -9,6 +9,10 @@ export const getDockerData = isProduction
   ? 'localhost/getDockerData'
   : `${mockPath}/getDockerData.json`;
 
+export const getMails = isProduction
+  ? 'localhost/getMails'
+  : `${mockPath}/getMails.json`;
+
 export const makeGetContainerData = (id: string) =>
   isProduction
     ? `localhost/getContainerData/${id}`

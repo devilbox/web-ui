@@ -1,0 +1,29 @@
+[
+  {
+    "id": "mail1",
+    "date": "2020-07-01T10:00:00.000Z",
+    "from": "from@somewhere.com",
+    "to": "to@somewhere.com",
+    "subject": "subject 1",
+    "body": "body 1",
+    "raw": "some raw content for mail 1"
+  },
+  {
+    "id": "mail2",
+    "date": "2020-07-02T10:00:00.000Z",
+    "from": "from@somewhere.com",
+    "to": "to@somewhere.com",
+    "subject": "subject 2",
+    "body": "body 2",
+    "raw": "some raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\nsome raw content for mail 2\n"
+  },
+  {
+    "id": "mail3",
+    "date": "2020-07-03T10:00:00.000Z",
+    "from": "from@somewhere.com",
+    "to": "to@somewhere.com",
+    "subject": "subject 3",
+    "body": "body 3",
+    "raw": "some raw content for mail 3"
+  }
+]
