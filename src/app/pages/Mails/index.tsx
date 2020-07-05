@@ -37,6 +37,25 @@ const useStyles = makeStyles((theme: Theme) =>
     isClickable: {
       cursor: 'pointer',
     },
+    headerCellIcon: {
+      width: 56,
+    },
+    defaultCollapsibleCell: {
+      padding: 0,
+    },
+    collapsibleCellContent: {
+      paddingBottom: 0,
+      paddingTop: 0,
+      width: '100%',
+    },
+    collapsibleCellIcon: {
+      paddingBottom: 0,
+      paddingTop: 0,
+      paddingRight: 4,
+    },
+    rawSourceCell: {
+      paddingTop: 0,
+    },
   }),
 );
 
@@ -121,7 +140,7 @@ const Mails = () => {
                   <TableCell component="th" scope="row">
                     <Typography variant="button">Subject</Typography>
                   </TableCell>
-                  <TableCell style={{ width: 56 }} />
+                  <TableCell className={classes.headerCellIcon} />
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -151,7 +170,10 @@ const Mails = () => {
                       </TableCell>
                     </TableRow>
                     <TableRow>
-                      <TableCell colSpan={6} style={{ padding: 0 }}>
+                      <TableCell
+                        colSpan={6}
+                        className={classes.defaultCollapsibleCell}
+                      >
                         <Collapse
                           in={mailsOpened.includes(mail.id)}
                           timeout="auto"
@@ -161,11 +183,7 @@ const Mails = () => {
                             <TableBody>
                               <TableRow>
                                 <TableCell
-                                  style={{
-                                    paddingBottom: 0,
-                                    paddingTop: 0,
-                                    width: '100%',
-                                  }}
+                                  className={classes.collapsibleCellContent}
                                 >
                                   <Box pt={2} pb={2}>
                                     <Typography variant="body1">
@@ -175,11 +193,7 @@ const Mails = () => {
                                 </TableCell>
 
                                 <TableCell
-                                  style={{
-                                    paddingBottom: 0,
-                                    paddingTop: 0,
-                                    paddingRight: 4,
-                                  }}
+                                  className={classes.collapsibleCellIcon}
                                 >
                                   <Tooltip title="Raw source">
                                     <IconButton
@@ -200,7 +214,7 @@ const Mails = () => {
                                 <TableRow>
                                   <TableCell
                                     colSpan={2}
-                                    style={{ paddingTop: 0 }}
+                                    className={classes.rawSourceCell}
                                   >
                                     <Box mt={2}>
                                       <TextField
