@@ -5,6 +5,7 @@ import {
   Typography,
   IconButton,
   Button,
+  Tooltip,
 } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {
@@ -166,9 +167,11 @@ const Header = ({ databases, infos, tools }: Props) => {
 
         <div className={classes.grow} />
 
-        <IconButton aria-label="Github page of the project" color="inherit">
-          <GithubIcon />
-        </IconButton>
+        <Tooltip title="Github page of the project">
+          <IconButton color="inherit">
+            <GithubIcon />
+          </IconButton>
+        </Tooltip>
       </Toolbar>
     </AppBar>
   );
