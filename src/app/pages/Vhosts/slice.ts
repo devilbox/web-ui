@@ -31,6 +31,18 @@ const vhostsSlice = createSlice({
       });
       state.__meta.fetch = 'done';
     },
+    setVhostError(
+      state,
+      action: PayloadAction<{ vhostId: string; error: string }>,
+    ) {
+      const index = state.vhosts.findIndex(
+        vhost => vhost.id === action.payload.vhostId,
+      );
+
+      if (index >= 0) {
+        state.vhosts[index].initial_error = action.payload.error;
+      }
+    },
   },
 });
 

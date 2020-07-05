@@ -2,11 +2,7 @@ import { takeLatest, put, call, all, select } from 'redux-saga/effects';
 import axios from 'axios';
 import { actions } from './slice';
 import { ContainerState } from './types';
-import {
-  makeContainerIdsSelector,
-  makeToolsIdsSelector,
-  makeDataIsFetchedSelector,
-} from './selectors';
+import { makeContainerIdsSelector, makeToolsIdsSelector } from './selectors';
 import {
   getDockerData as GET_DOCKER_DATA_API,
   makeGetContainerData,
@@ -14,22 +10,18 @@ import {
 } from '../../../apis';
 
 function* fetchAppData() {
-  const dataAlreadyFetched = yield select(makeDataIsFetchedSelector);
+  const data: ContainerState = yield axios
+    .get(GET_DOCKER_DATA_API)
+    .then(response => response.data);
 
-  if (!dataAlreadyFetched) {
-    const data: ContainerState = yield axios
-      .get(GET_DOCKER_DATA_API)
-      .then(response => response.data);
+  if (data) {
+    yield put(actions.setData(data));
 
-    if (data) {
-      yield put(actions.setData(data));
+    const containerIds = yield select(makeContainerIdsSelector);
+    const toolsIds = yield select(makeToolsIdsSelector);
 
-      const containerIds = yield select(makeContainerIdsSelector);
-      const toolsIds = yield select(makeToolsIdsSelector);
-
-      yield all(containerIds.map((id: string) => call(fetchContainerData, id)));
-      yield all(toolsIds.map((id: string) => call(fetchToolData, id)));
-    }
+    yield all(containerIds.map((id: string) => call(fetchContainerData, id)));
+    yield all(toolsIds.map((id: string) => call(fetchToolData, id)));
   }
 }
 

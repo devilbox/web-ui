@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
-import { Container, Typography } from '@material-ui/core';
+import { Container, Typography, Tab } from '@material-ui/core';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import DefaultContent from './components/Default';
 import Table from './components/Table';
 import saga from './saga';
-import { makeHasVhostsSelector, makeDataIsFetchedSelector } from './selectors';
+import {
+  makeHasVhostsSelector,
+  makeDataIsFetchedSelector,
+  makeMetaFetchSelector,
+} from './selectors';
 import { sliceKey, reducer, actions } from './slice';
 
 const Vhosts = () => {
@@ -17,12 +21,25 @@ const Vhosts = () => {
 
   const dataIsFetched = useSelector(makeDataIsFetchedSelector);
   const hasVhosts = useSelector(makeHasVhostsSelector);
+  const fetchStatus = useSelector(makeMetaFetchSelector);
 
   useEffect(() => {
     if (!dataIsFetched) {
       dispatch(actions.fetchData());
     }
   }, [dataIsFetched, dispatch]);
+
+  const renderContent = () => {
+    if (fetchStatus !== 'done') {
+      return undefined;
+    }
+
+    if (hasVhosts) {
+      return <Table />;
+    }
+
+    return <DefaultContent />;
+  };
 
   return (
     <>
@@ -35,7 +52,7 @@ const Vhosts = () => {
           Virtual hosts
         </Typography>
 
-        {hasVhosts ? <Table /> : <DefaultContent />}
+        {renderContent()}
       </Container>
     </>
   );
