@@ -14,10 +14,17 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  Divider,
   TextField,
+  Collapse,
+  IconButton,
+  Tooltip,
 } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import {
+  KeyboardArrowDown as KeyboardArrowDownIcon,
+  KeyboardArrowUp as KeyboardArrowUpIcon,
+  Code as CodeIcon,
+} from '@material-ui/icons';
 import { without } from 'lodash';
 import moment from 'moment';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
@@ -114,6 +121,7 @@ const Mails = () => {
                   <TableCell component="th" scope="row">
                     <Typography variant="button">Subject</Typography>
                   </TableCell>
+                  <TableCell style={{ width: 56 }} />
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -134,43 +142,85 @@ const Mails = () => {
                       <TableCell>{mail.from}</TableCell>
                       <TableCell>{mail.to}</TableCell>
                       <TableCell>{mail.subject}</TableCell>
+                      <TableCell>
+                        {mailsOpened.includes(mail.id) ? (
+                          <KeyboardArrowUpIcon />
+                        ) : (
+                          <KeyboardArrowDownIcon />
+                        )}
+                      </TableCell>
                     </TableRow>
-                    {mailsOpened.includes(mail.id) && (
-                      <TableRow>
-                        <TableCell colSpan={5}>
-                          <Typography variant="body1">{mail.body}</Typography>
-                          <Box mt={2} mb={2}>
-                            <Divider />
-                          </Box>
-                          <Button
-                            onClick={() => {
-                              setRawSourcesOpened(
-                                rawSourcesOpened.includes(mail.id)
-                                  ? without(rawSourcesOpened, mail.id)
-                                  : [...rawSourcesOpened, mail.id],
-                              );
-                            }}
-                            variant="outlined"
-                          >
-                            Raw source
-                          </Button>
+                    <TableRow>
+                      <TableCell colSpan={6} style={{ padding: 0 }}>
+                        <Collapse
+                          in={mailsOpened.includes(mail.id)}
+                          timeout="auto"
+                          unmountOnExit
+                        >
+                          <Table>
+                            <TableBody>
+                              <TableRow>
+                                <TableCell
+                                  style={{
+                                    paddingBottom: 0,
+                                    paddingTop: 0,
+                                    width: '100%',
+                                  }}
+                                >
+                                  <Box pt={2} pb={2}>
+                                    <Typography variant="body1">
+                                      {mail.body}
+                                    </Typography>
+                                  </Box>
+                                </TableCell>
 
-                          {rawSourcesOpened.includes(mail.id) && (
-                            <Box mt={2}>
-                              <TextField
-                                multiline
-                                value={mail.raw}
-                                InputProps={{
-                                  readOnly: true,
-                                }}
-                                fullWidth
-                                variant="filled"
-                              />
-                            </Box>
-                          )}
-                        </TableCell>
-                      </TableRow>
-                    )}
+                                <TableCell
+                                  style={{
+                                    paddingBottom: 0,
+                                    paddingTop: 0,
+                                    paddingRight: 4,
+                                  }}
+                                >
+                                  <Tooltip title="Raw source">
+                                    <IconButton
+                                      onClick={() => {
+                                        setRawSourcesOpened(
+                                          rawSourcesOpened.includes(mail.id)
+                                            ? without(rawSourcesOpened, mail.id)
+                                            : [...rawSourcesOpened, mail.id],
+                                        );
+                                      }}
+                                    >
+                                      <CodeIcon />
+                                    </IconButton>
+                                  </Tooltip>
+                                </TableCell>
+                              </TableRow>
+                              {rawSourcesOpened.includes(mail.id) && (
+                                <TableRow>
+                                  <TableCell
+                                    colSpan={2}
+                                    style={{ paddingTop: 0 }}
+                                  >
+                                    <Box mt={2}>
+                                      <TextField
+                                        multiline
+                                        value={mail.raw}
+                                        InputProps={{
+                                          readOnly: true,
+                                        }}
+                                        fullWidth
+                                        variant="filled"
+                                      />
+                                    </Box>
+                                  </TableCell>
+                                </TableRow>
+                              )}
+                            </TableBody>
+                          </Table>
+                        </Collapse>
+                      </TableCell>
+                    </TableRow>
                   </Fragment>
                 ))}
               </TableBody>
