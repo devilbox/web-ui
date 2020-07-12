@@ -1,7 +1,9 @@
 const isProduction = process.env.NODE_ENV === 'production';
 const mockPath = `${process.env.PUBLIC_URL}/__mocks__/apiRequests`;
 
-export const domain = window.location.hostname;
+const {
+  location: { hostname: domain },
+} = window;
 
 export const getAppData = isProduction
   ? `//${domain}/get-app-data.php`
