@@ -1,38 +1,40 @@
 const isProduction = process.env.NODE_ENV === 'production';
 const mockPath = `${process.env.PUBLIC_URL}/__mocks__/apiRequests`;
 
+export const domain = window.location.hostname;
+
 export const getAppData = isProduction
-  ? 'localhost/getAppData'
+  ? `//${domain}/get-app-data.php`
   : `${mockPath}/getAppData.json`;
 
 export const getDockerData = isProduction
-  ? 'localhost/getDockerData'
+  ? `//${domain}/get-docker-data.php`
   : `${mockPath}/getDockerData.json`;
 
 export const getMails = isProduction
-  ? 'localhost/getMails'
+  ? `//${domain}/get-mails.php`
   : `${mockPath}/getMails.json`;
 
 export const makeGetContainerData = (id: string) =>
   isProduction
-    ? `localhost/getContainerData/${id}`
+    ? `//${domain}/get-container-data.php?id=${id}`
     : `${mockPath}/containerData/${id}.json`;
 
 export const makeGetToolsData = (id: string) =>
   isProduction
-    ? `localhost/getToolsData/${id}`
+    ? `//${domain}/get-tools.php?id=${id}`
     : `${mockPath}/tools/${id}.json`;
 
 export const getVhosts = isProduction
-  ? 'localhost/getVhosts'
+  ? `//${domain}/get-vhosts.php`
   : `${mockPath}/getVhosts.json`;
 
 export const makeGetVhostDirectory = (id: string) =>
   isProduction
-    ? `localhost/vhosts/directory/${id}`
+    ? `//${domain}/get-vhost-dir.php?id=${id}`
     : `${mockPath}/vhosts/directory/${id}.json`;
 
-export const makeGetVhostsDomain = (id: string) =>
+export const makeGetVhostsDomain = (id: string, tld_suffix: string) =>
   isProduction
-    ? `localhost/vhosts/domain/${id}`
+    ? `//${id}.${tld_suffix}/devilbox-api/status.json`
     : `${mockPath}/vhosts/domain/${id}.json`;
