@@ -6,6 +6,7 @@ import {
   makeVhostsSelector,
   makeDomainErrorSelector,
   makeDirectoryErrorSelector,
+  makeTldSuffixSelector,
 } from './selectors';
 import {
   getVhosts as GET_VHOSTS_API,
@@ -39,8 +40,10 @@ function* fetchDirectory(vhostId: string) {
 }
 
 function* fetchDomain(vhostId: string) {
+  const tldSuffix = yield select(makeTldSuffixSelector);
+
   try {
-    yield axios.get(makeGetVhostsDomain(vhostId), { timeout: 1000 });
+    yield axios.get(makeGetVhostsDomain(vhostId, tldSuffix), { timeout: 1000 });
   } catch (e) {
     const selector = makeDomainErrorSelector(vhostId);
     const error = yield select(selector);
